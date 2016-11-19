@@ -7,5 +7,5 @@
 ## 采用技术
 
 使用了Python+Django的技术，前后端分为两个小组：
-* 前端：@[kindeQi](请大家自己填一下）
+* 前端：@[kindeQi](https://github.com/kindeQi)(请大家自己填一下）
 * 后端：@[shiyi001](https://github.com/shiyi001)，@.....（自己填下）
