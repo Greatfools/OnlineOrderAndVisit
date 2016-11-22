@@ -18,7 +18,10 @@
 @[Eudora227](https://github.com/Eudora227)  
 @[kindeQi](https://github.com/kindeQi)   
 
-* 后端：@[shiyi001](https://github.com/shiyi001)，@.....（自己填下）
+* 后端：
+@[shiyi001](https://github.com/shiyi001)
+@[WindfuryBulb](https://github.com/WindfuryBulb)
+，@.....（自己填下）
 
 ### 下载安装
 
