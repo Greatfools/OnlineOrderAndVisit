@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #this is our own application
+    'OrderAndVisit',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/path/to/my.cnf',
+            'read_default_file': '/home/my.cnf',
         },
     }
 }
