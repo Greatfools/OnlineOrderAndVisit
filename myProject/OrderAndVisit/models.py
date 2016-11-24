@@ -7,7 +7,10 @@ class Hospital(models.Model):
     name = models.CharField(max_length = 20)
     level = models.CharField(max_length = 10)
     address =  models.CharField(max_length = 100)
+    img = models.CharField(max_length = 50)
     introduction = models.TextField(null = True)
+    phonenum = models.CharField(max_length = 20)
+    impoOffice = models.CharField(max_length = 50)
 
     def __unicode__(self):
         return self.name
@@ -17,6 +20,7 @@ class User(models.Model):
     password = models.CharField(max_length = 20)
     name = models.CharField(max_length = 20)
     sex = models.CharField(max_length = 4)
+    birthday = models.CharField(max_length = 20)
     idCard = models.CharField(max_length = 18)
     telephone = models.CharField(max_length = 11)
     creditLevel = models.IntegerField(default = 5)
@@ -37,6 +41,7 @@ class Doctor(models.Model):
     name = models.CharField(max_length = 10)
     title = models.CharField(max_length = 20)
     introduction = models.TextField(null = True)
+    address = models.CharField(max_length = 100)
 
     def __unicode__(self):
         return self.name
