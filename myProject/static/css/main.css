@@ -22,7 +22,7 @@ body {
 }
 
 .logo, .login {
-    width: 138px;
+    width: 134px;
     height: 36px;
     position: absolute;
     margin:0;
@@ -76,10 +76,36 @@ body {
 }
 
 .login {
+    width:180px;
     right:0;
     background-color: #ffffff;
 }
-
+.loginButton{
+    width:80px;
+    height:36px;
+    display: inline-block;
+}
+.loginButton button{
+    width:79px;
+    height:36px;
+    background-color: #ffffff;
+    border:1px solid #e8e8e8;
+    outline: none;
+    color: #64BFEF;
+}
+.registerButton{
+    width:54px;
+    height: 36px;
+    display: inline-block;
+    margin-left: 10px;
+    position: absolute;
+    top:0;
+    padding-top: 8px;
+}
+.registerButton a{
+    text-decoration: none;
+    color: #64BFEF;
+}
 .banner {
     width:100%;
     height:40px;
