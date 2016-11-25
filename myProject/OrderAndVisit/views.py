@@ -39,7 +39,6 @@ def logout(request):
 		del request.session['member_id']
 	except KeyError:
 		pass
-	return HttpPesopnse("You're logged out")
+	return HttpResponse("You're logged out")
 
-def personInformation(request):
 	
