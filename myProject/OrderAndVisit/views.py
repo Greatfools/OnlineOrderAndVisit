@@ -26,7 +26,7 @@ def login(request):
 			else:
 				if res.password == userPassword:
 					request.session['member_id'] = res.id
-					return HttpResponseRedirect('/personInformation/?name=userName,password=userPassword')
+					return HttpResponseRedirect('/index/?errorMessage=errors')
 		else:
 			errors.append('please input your password')
 	else:
@@ -41,5 +41,33 @@ def logout(request):
 		pass
 	return HttpPesopnse("You're logged out")
 
-def personInformation(request):
+def register(request):
+	errors = []
+	if request.method == 'POST':
+		if not request.POST.get('name', ''):
+			errors.append('Enter a name')
+		if not request.POST.get('gender', ''):
+			errors.append('Enter a gender')
+		if not request.POST.get('idNum', ''):
+			errors.append('Enter an idNum')
+		if not request.POST.get('birthdate',''):
+			errors.append('Enter a birthdate')
+		if not request.POST.get('password', ''):
+			errors.append('Enter a password')
+		if not request.POST.get('phoneNum', ''):
+			errors.append('Enter a phoneNum')
+		if not errors:
+			name = request.POST['name']
+			password = request.POST['password']
+			sex = request.POST['gender']
+			birthDate = request.POST['birthdate']
+			idNum = request.POST['idNum']
+			phoneNum = request.PSOT['phoneNum']
+			user_tmp = User(name = name, password = password, sex = sex, birthday = birthDate, telephone = phoneNum, idCard = idNum)
+			user_tmp.save();
+
+			res = User.objects.filter(name = name)
+			request.session['member_id'] = res.id
+	# return where? i think it should be discussed
+	return HttpResponseRedirect('/index/?errorMessage=errors')
 	
