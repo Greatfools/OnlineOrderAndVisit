@@ -4,8 +4,10 @@
 $('.banner a').click(function () {
     var _this = $(this).parent();
     _this.siblings().removeClass('selected');
-    if (!_this.hasClass('banner')){
-        _this.addClass('selected');
-    }
+    _this.addClass('selected');
+});
 
+$('.loginButton button').click(function () {
+    $('.login-layer').removeClass('hidden');
+    $('.login-table').removeClass('hidden');
 })

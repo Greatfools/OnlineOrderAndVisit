@@ -6,15 +6,38 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-theme.css">
 
     <link rel="stylesheet" href="../static/css/main.css">
 </head>
 <body>
+<div class="login-layer hidden">
+
+    <div class="login-background">
+
+    </div>
+</div>
 
 <!--搜索框 logo-->
 <div class="fastTop">
     <div class="searchBox">
+        <!--登录框-->
+        <div class="login-table hidden">
+            <div class="login">
+                <dl>
+                    <dt>用户名：</dt>
+                    <dd>
+                        <input class="usernameInput" placeholder="请输入用户名">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>密码：</dt>
+                    <dd>
+                        <input class="passwordInput" placeholder="请输入密码">
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <!-------->
         <div class="logo"></div>
             <a class='logo' href="main.html">
                 <img class="logo" src="../static/img/logo.png">
