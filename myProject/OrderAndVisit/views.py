@@ -39,8 +39,9 @@ def logout(request):
 		del request.session['member_id']
 	except KeyError:
 		pass
-	return HttpPesopnse("You're logged out")
+	return HttpResponse("You're logged out")
 
+<<<<<<< HEAD
 def register(request):
 	errors = []
 	if request.method == 'POST':
@@ -70,4 +71,6 @@ def register(request):
 			request.session['member_id'] = res.id
 	# return where? i think it should be discussed
 	return HttpResponseRedirect('/index/?errorMessage=errors')
+=======
+>>>>>>> 55558ac7c18e54d41e0e33ddd0049486782cbdf6
 	
