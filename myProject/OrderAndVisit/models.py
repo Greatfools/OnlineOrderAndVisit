@@ -56,12 +56,12 @@ class Admin(models.Model):
 
 class VisitMessage(models.Model):
     doctorId = models.ForeignKey(Doctor)
-    visitDate = models.DateTimeField(auto_now_add = True)
+    visitDate = models.CharField(max_length = 20)
     visitTime = models.CharField(max_length = 16)#早上/中午/晚上
     maxNumber = models.IntegerField(default = 0)
     restNumber = models.IntegerField(default = 0)#剩余可预约人数
 
-    def __unicdoe__(self):
+    def __unicode__(self):
         return self.doctorId + self.visitDate
 
 class OrderMessage(models.Model):
