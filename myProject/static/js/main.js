@@ -11,3 +11,7 @@ $('.loginButton button').click(function () {
     $('.login-layer').removeClass('hidden');
     $('.login-table').removeClass('hidden');
 })
+$('.dl_close').click(function () {
+    $('.login-layer').addClass('hidden');
+    $('.login-table').addClass('hidden');
+})

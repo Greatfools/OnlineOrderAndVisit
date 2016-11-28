@@ -13,8 +13,78 @@ body {
 .hidden{
     display: none;
 }
+#login{
+    height:300px;
+    width:570px;
+    position: absolute;
+    left:0;
+    top:0;
+}
+#login dl,.submit{
+    height:42px;
+    width:500px;
+    position: absolute;
+    left:100px;
+}
+#login dt{
+    width:70px;
+    height:30px;
+    text-align: right;
+    font-size:15px;
+    /*
+    color:#64BFEF;
+     */
+}
+#login dl input{
+    width:250px;
+    height:30px;
+    outline:none;
+    /*
+    border:1px solid #64BFEF;
+     */
+}
+.dl_username{
+    top:60px;
+}
+.dl_username dd,.dl_username dt{
+    display: inline-block;
+}
+.dl_password dd,.dl_password dt{
+    display: inline-block;
+}
+.dl_password{
+    top:126px;
+}
+.submit{
+    position: absolute;
+    top: 200px;
+}
+.submit input,.submit a{
+    width:96px ;
+    height:36px ;
+    position: absolute;
+    border:1px solid #64BFEF;
+    background-color: #64BFEF;
+    outline: none;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    display: inline-block;
+}
+.submit input{
+    left:72px;
+}
+.submit a{
+    left:220px;
+    text-decoration: none;
+    padding-top: 5px;
+    /*
+    padding-left: 4px;
+     */
+    text-align: center;
+}
 .login-table{
-    height:350px;
+    height:300px;
     width:570px;
     position: absolute;
     top: 100px;
@@ -22,7 +92,15 @@ body {
     background-color: #ffffff;
     z-index: 10001;
     margin:100px auto;
-
+    border:1px solid #64BFEF;
+}
+.dl_close{
+    height:40px;
+    width:40px;
+    position: absolute;
+    top:-20px;
+    right:-20px;
+    cursor: pointer;
 }
 .fastTop {
     width: 100%;
