@@ -1,0 +1,66 @@
+aside{
+    text-align: center;
+    border-right-color: #ddd;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+aside *{
+     margin-bottom: 14px;
+     margin-top: 14px;
+}
+table{
+    border-collapse: collapse;
+}
+thead{
+    color: #60bff2;
+}
+
+td a{
+    color: #60bff2;
+    font-size: 14px;
+    text-decoration: none;
+}
+td a:hover{
+    color: #3e9dd0;
+    text-decoration: none;
+}
+article *{
+    margin-top: 31px;
+    margin-bottom: 31px;
+}
+.usrinfolink {
+    color: #60bff2;
+    font-size: 14px;
+}
+.usrinfolink:hover{
+    color: #3e9dd0;
+    text-decoration: none;
+}
+.usrselected{
+    margin: 10px;
+    background-color: #60bff2;
+    height:40px;
+    color:#fff;
+    text-align: center;
+    font-size:14px;
+}
+.usrselected:before{
+    height:13px;
+}
+/*
+#appointinfo{
+    position: absolute;
+    top: 10px;
+}*/
+#atcllabel{
+    background-color: #5fbff2;
+    font-size:14px;
+    height:2em;
+    vertical-align: middle;
+    color:#fff;
+}
+
+#atcllabel:before{
+    content:url(../img/appointinfo/myappnticon.png);
+    height:2em;
+}
