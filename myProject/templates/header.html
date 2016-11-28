@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="../static/css/header.css">
+<div class="login-layer hidden">
+
+    <div class="login-background">
+
+    </div>
+</div>
+
+<div class="fastTop">
+    <div class="searchBox">
+        <!--登录框-->
+        <div class="login-table hidden">
+            <div class="dl_close">
+                <img src="../static/img/dl_close.png">
+            </div>
+            <div id="login">
+                <dl class="dl_username">
+                    <dt>用户名：</dt>
+                    <dd>
+                        <input class="usernameInput" placeholder="请输入用户名">
+                    </dd>
+                </dl>
+                <dl class="dl_password">
+                    <dt>密&nbsp;码：</dt>
+                    <dd>
+                        <input class="passwordInput" placeholder="请输入密码">
+                    </dd>
+                </dl>
+                <div class="submit">
+                    <input id="submitLogin" type="submit" value="登录">
+                    <a href="#" id="registerButton">注册</a>
+                </div>
+            </div>
+        </div>
+        <!-------->
+        <div class="logo"></div>
+        <a class='logo' href="header.html">
+            <img class="logo" src="../static/img/logo.png">
+        </a>
+        <div class="area"></div>
+
+
+        <div class="keyword"></div>
+        <form id="searchForm" method="get" action="#">
+            <input id="searchInput" placeholder="请输入医院/科室/医生" type="text" name="key">
+            <button id="searchButton" type="button" >搜&nbsp;索</button>
+        </form>
+        <div class="login">
+            <div class="loginButton">
+                <button href="#">登&nbsp;录</button>
+            </div>
+            <div class="registerButton">
+                <a href="#">注&nbsp;册</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+
+<!--导航栏-->
+<div class="banner">
+    <div class="banner-content">
+        <div class="home selected">
+            <a href="#">首页</a>
+        </div>
+        <div class="hospitalSearch unselected">
+            <a href="#">按医院挂号</a>
+        </div>
+
+        <div class="officeSearch unselected">
+            <a href="#">按科室挂号</a>
+        </div>
+
+        <div class="doctorSearch unselected">
+            <a href="#">按医生挂号</a>
+        </div>
+    </div>
+
+</div>
+<script src="../static/js/header.js"></script>
