@@ -1,6 +1,6 @@
 
 body {
-
+    font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑","宋体",Arial,Verdana,sans-serif;
 }
 .login-background{
     height:100%;
@@ -67,7 +67,6 @@ body {
     background-color: #64BFEF;
     outline: none;
     color: #ffffff;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 17px;
     display: inline-block;
 }
@@ -166,7 +165,6 @@ body {
     background-color: #64BFEF;
     outline: none;
     color: #ffffff;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 17px;
 }
 #searchButton:hover{
