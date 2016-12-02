@@ -1,4 +1,6 @@
 aside{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
     text-align: center;
     border-right-color: #ddd;
     border-right-style: solid;
@@ -7,17 +9,19 @@ aside{
 aside *{
      margin-bottom: 14px;
      margin-top: 14px;
+     margin-right: 0px;!important;
+     padding-right:0px;!important;
 }
 table{
     border-collapse: collapse;
+    margin-top: 10px !important;
 }
 thead{
     color: #60bff2;
 }
-
 td a{
     color: #60bff2;
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
 }
 td a:hover{
@@ -38,8 +42,12 @@ article *{
 }
 .usrselected{
     margin: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
     background-color: #60bff2;
-    height:40px;
+    /*height:40px;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
     color:#fff;
     text-align: center;
     font-size:14px;
@@ -55,12 +63,17 @@ article *{
 #atcllabel{
     background-color: #5fbff2;
     font-size:14px;
-    height:2em;
-    vertical-align: middle;
+    margin: 0px !important;
+    /*height:2em;*/
+    /*padding-top: 0.5em;*/
+    /*padding-bottom: 0.5em;*/
+    /*vertical-align: middle;*/
     color:#fff;
 }
-
-#atcllabel:before{
-    content:url(../img/appointinfo/myappnticon.png);
-    height:2em;
+#atcllabel *{
+    margin: 0px 0px 0px 0px !important;
 }
+/*#atcllabel:before{*/
+    /*content:url(../img/appointinfo/myappnticon.png);*/
+    /*height:28px;*/
+/*}*/
