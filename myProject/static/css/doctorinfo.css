@@ -1,0 +1,80 @@
+a:visited{
+    text-decoration: none;
+}
+#docBscInfo{
+    background-color: #f7f7f7;
+}
+.infogrey{
+    color: #999;
+}
+#docInfoCntnt{
+    padding: 5px 5px !important;
+}
+#docAppntLbl{
+    margin-top: 30px !important;
+}
+
+#docAppnt{
+    /*margin-top: 30px !important;*/
+}
+#chooseAppntTimeLbl{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+table{
+    cellspacing: 10;
+}
+table * * *{
+    text-align: center;
+}
+thead * *{
+    padding: 0.5em !important;
+}
+tbody * *{
+    padding: 2em 0em !important;
+}
+#specialTH{
+    padding-bottom: 2em !important;
+    padding-top: 0px !important;
+}
+.appntTimeGrey{
+    background-color: #bbb;
+}
+td a{
+    color: #fff;
+    text-decoration: none;
+}
+td a:hover{
+    color: #fff;
+    text-decoration: none;
+    text-shadow:1px 1px 3px #555;
+}
+td a:visited{
+    color: #fff;
+    text-decoration: none;
+    /*有bug:点击之后有下划线*/
+}
+.appntBlue{
+    background-color: #60afff;
+}
+
+
+
+/**************/
+#rule{
+    padding: 0px !important;
+}
+#ruleLbl{
+    /*margin: 0px 0px !important;*/
+    /*padding: 0px 0px !important;*/
+    background-color: #f7f7f7;
+    border: #f7f7f7 solid 2px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+}
+#rulecntnt{
+    margin: 0px 0px !important;
+    padding: 0px 0px 0px 0.5em !important;
+    border: #f7f7f7 solid 2px;
+}
