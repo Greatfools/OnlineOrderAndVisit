@@ -1,0 +1,79 @@
+aside{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    text-align: center;
+    border-right-color: #ddd;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+aside *{
+     margin-bottom: 14px;
+     margin-top: 14px;
+     margin-right: 0px;!important;
+     padding-right:0px;!important;
+}
+table{
+    border-collapse: collapse;
+    margin-top: 10px !important;
+}
+thead{
+    color: #60bff2;
+}
+td a{
+    color: #60bff2;
+    font-size: 12px;
+    text-decoration: none;
+}
+td a:hover{
+    color: #3e9dd0;
+    text-decoration: none;
+}
+article *{
+    margin-top: 31px;
+    margin-bottom: 31px;
+}
+.usrinfolink {
+    color: #60bff2;
+    font-size: 14px;
+}
+.usrinfolink:hover{
+    color: #3e9dd0;
+    text-decoration: none;
+}
+.usrselected{
+    margin: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: #60bff2;
+    /*height:40px;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#fff;
+    text-align: center;
+    font-size:14px;
+}
+.usrselected:before{
+    height:13px;
+}
+/*
+#appointinfo{
+    position: absolute;
+    top: 10px;
+}*/
+#atcllabel{
+    background-color: #5fbff2;
+    font-size:14px;
+    margin: 0px !important;
+    /*height:2em;*/
+    /*padding-top: 0.5em;*/
+    /*padding-bottom: 0.5em;*/
+    /*vertical-align: middle;*/
+    color:#fff;
+}
+#atcllabel *{
+    margin: 0px 0px 0px 0px !important;
+}
+/*#atcllabel:before{*/
+    /*content:url(../img/appointinfo/myappnticon.png);*/
+    /*height:28px;*/
+/*}*/

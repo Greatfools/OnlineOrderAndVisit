@@ -1,0 +1,245 @@
+
+body {
+    font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑","宋体",Arial,Verdana,sans-serif;
+}
+.login-background{
+    height:100%;
+    width:100%;
+    background-color: gray;
+    position: absolute;
+    z-index:10000;
+    opacity: 0.3;
+}
+.hidden{
+    display: none;
+}
+#login{
+    height:300px;
+    width:570px;
+    position: absolute;
+    left:0;
+    top:0;
+}
+#login dl,.submit{
+    height:42px;
+    width:500px;
+    position: absolute;
+    left:100px;
+}
+#login dt{
+    width:70px;
+    height:30px;
+    text-align: right;
+    font-size:15px;
+    /*
+    color:#64BFEF;
+     */
+}
+#login dl input{
+    width:250px;
+    height:30px;
+    outline:none;
+    /*
+    border:1px solid #64BFEF;
+     */
+}
+.dl_username{
+    top:60px;
+}
+.dl_username dd,.dl_username dt{
+    display: inline-block;
+}
+.dl_password dd,.dl_password dt{
+    display: inline-block;
+}
+.dl_password{
+    top:126px;
+}
+.submit{
+    position: absolute;
+    top: 200px;
+}
+.submit input,.submit a{
+    width:96px ;
+    height:36px ;
+    position: absolute;
+    border:1px solid #64BFEF;
+    background-color: #64BFEF;
+    outline: none;
+    color: #ffffff;
+    font-size: 17px;
+    display: inline-block;
+}
+.submit input{
+    left:72px;
+}
+.submit a{
+    left:220px;
+    text-decoration: none;
+    padding-top: 5px;
+    /*
+    padding-left: 4px;
+     */
+    text-align: center;
+}
+.login-table{
+    height:300px;
+    width:570px;
+    position: absolute;
+    top: 100px;
+    left:225px;
+    background-color: #ffffff;
+    z-index: 10001;
+    margin:100px auto;
+    border:1px solid #64BFEF;
+}
+.dl_close{
+    height:40px;
+    width:40px;
+    position: absolute;
+    top:-20px;
+    right:-20px;
+    cursor: pointer;
+}
+.fastTop {
+    width: 100%;
+    height: 76px;
+    position: absolute;
+    background-color: #ffffff;
+}
+
+.searchBox {
+    width: 1020px;
+    height: 100%;
+    padding: 20px 0;
+    margin: 0 auto;
+    background-color: #ffffff;
+    /*position: absolute;*/
+    position: relative;
+}
+
+.logo, .login {
+    width: 134px;
+    height: 36px;
+    position: absolute;
+    margin:0;
+}
+
+.logo {
+
+    /*margin:20px auto 20px 0;*/
+    margin-left: 0;
+    background-color: #ffffff;
+}
+
+.area {
+    width:100px;
+    height:36px;
+    position: absolute;
+    background-color: #ffffff;
+    left: 134px;
+    margin: 0;
+}
+
+.keyword,#searchForm{
+    width: 570px;
+    height: 36px;
+    left: 238px;
+    position: absolute;
+    background-color: #ffffff;
+    margin: 0;
+}
+#searchInput{
+    width:469px;
+    height:36px;
+    position: absolute;
+    border:1px solid #64BFEF;
+    outline: none;
+}
+#searchButton{
+    width:96px;
+    height:36px;
+    position: absolute;
+    left:469px;
+    border:1px solid #64BFEF;
+    background-color: #64BFEF;
+    outline: none;
+    color: #ffffff;
+    font-size: 17px;
+}
+#searchButton:hover{
+    background-color: #2BA5ED;
+}
+
+.login {
+    width:180px;
+    right:0;
+    background-color: #ffffff;
+}
+.loginButton{
+    width:80px;
+    height:36px;
+    display: inline-block;
+}
+.loginButton button{
+    width:79px;
+    height:36px;
+    background-color: #ffffff;
+    border:1px solid #e8e8e8;
+    outline: none;
+    color: #64BFEF;
+}
+.registerButton{
+    width:54px;
+    height: 36px;
+    display: inline-block;
+    margin-left: 10px;
+    position: absolute;
+    top:0;
+    padding-top: 8px;
+}
+.registerButton a{
+    text-decoration: none;
+    color: #64BFEF;
+}
+.banner {
+    width:100%;
+    height:40px;
+    position:absolute;
+    top: 76px;
+    background-color: #64BFEF;
+}
+
+.banner-content{
+    width:1020px;
+    height:40px;
+    margin:0 auto;
+    background-color: #64BFEF;
+}
+
+.home, .hospitalSearch,.officeSearch,.doctorSearch{
+    width:134px;
+    height:40px;
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+
+.banner a{
+    margin:0 auto 0 auto;
+    text-align: center;
+    position: absolute;
+    width:80px;
+    height:30px;
+    margin:5px 27px;
+    padding:5px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.banner a:hover{
+    color: #C9F6FF;
+}
+.selected{
+    background-color: #2BA5ED !important;
+}

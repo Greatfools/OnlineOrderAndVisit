@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医生信息</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../static/css/doctorinfo.css">
+</head>
+<body>
+<div class="content-fluid" >
+    <div class="row" id="docBscInfo">
+        <img class="col-lg-1 col-md-1 col-lg-offset-1 col-md-offset-1 img-responsive" id="docImg" src="../static/img/doctorinfo/doctoricon.png"/>
+        <div class="col-lg-9 col-md-9" id="docInfoCntnt">
+            <span id="docName">姚明 </span><small id="docJob">主任医师</small><br>
+            <span id="docHosName">中国医学科学院 </span><span id="docClassName">心血管内科</span><br>
+            <span class="infogrey">地址: </span><span id="docAddr">北京市西城区北礼士路167号</span><br>
+            <span class="infogrey">简介: </span><span id="docIntro">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+        </div>
+    </div>
+    <div class="row" id="docAppntLbl">
+        <div class="col-lg-8 col-md-8 col-lg-offset-1 col-md-offset-1" id="chooseAppntTimeLbl">选择就诊时间</div>
+    </div>
+    <div class="row" id="docAppnt">
+        <div class="col-lg-8 col-md-8 col-lg-offset-1 col-md-offset-1">
+            <!--<div id="chooseAppntTime"></div>-->
+            <table class="table table-bordered table-hover" cellspacing="10px">
+                <thead>
+                <tr>
+                    <th rowspan="2" id="specialTH">就诊时段</th>
+                    <th>xx月xx日</th>
+                    <th>xx月xx日</th>
+                    <th>xx月xx日</th>
+                    <th>xx月xx日</th>
+                    <th>xx月xx日</th>
+                    <th>xx月xx日</th>
+                    <th>xx月xx日</th>
+                </tr>
+                <tr class="appntTimeGrey">
+                    <th>今天</th>
+                    <th>明天</th>
+                    <th>后天</th>
+                    <th>大后天</th>
+                    <th>大大后天</th>
+                    <th>大大大后天</th>
+                    <th>大大大大后天</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>上午</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                </tr>
+                <tr>
+                    <td>下午</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                </tr>
+                <tr>
+                    <td>晚上</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2 col-md-2 "id="rule">
+            <div id="ruleLbl">挂号规则</div>
+            <div id="rulecntnt">1.xxxx<br>2.XXXXX<br>3.xxxxx</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+</html>
