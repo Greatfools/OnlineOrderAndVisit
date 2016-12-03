@@ -1,3 +1,13 @@
+.content-fluid{
+    position: relative;
+    top:116px;
+}
+.footer{
+    position: absolute;
+    width:100%;
+    height:100px;
+    top:616px;
+}
 a:visited{
     text-decoration: none;
 }
