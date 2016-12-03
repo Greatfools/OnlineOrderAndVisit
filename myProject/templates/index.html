@@ -13,14 +13,229 @@
 
 <div class="header"></div>
 <div class="pic-box">
+    <div class="content-box">
+        <!--content-box定义了pic-box中填充内容的范围-->
+        <!--fastapt-box定义了左边白色部分-->
+        <div class="fastapt-box">
+            <p class="title">快速预约</p>
+            <div id="left-part">
+                <p class="left-inner-part">
+                    就诊地点
+                </p>
+                <p class="left-inner-part">
+                    选择医院
+                </p>
+                <p class="left-inner-part">
+                    就诊科室
+                </p>
+                <p class="left-inner-part">
 
+                </p>
+            </div>
+            <div id="right-part">
+                <div class="right-inner-part">
+                    <div class="dropdown right-special">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                            北京
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown right-special">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu12" data-toggle="dropdown">
+                            北京
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu12">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海市</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown right-special">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu13" data-toggle="dropdown">
+                            全部
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu13">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">none</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown right-inner-part">
+                    <button class="btn btn-default btn-block dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+                        变化
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown right-inner-part">
+                    <button class="btn btn-default btn-block dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown">
+                        变化
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海</a></li>
+                    </ul>
+                </div>
+                <div class="right-inner-part">
+                    <button type="button" class="btn btn-primary btn-block">快速预约</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <div class="index-container">
     <div class="promoted">
+        <div id="nav">
+            <div id="nav-mynav">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active nav-myaddition"><a href="#">医院</a></li>
+                    <li role="presentation" class="nav-myaddition"><a href="#">科室</a></li>
+                    <li role="presentation" class="nav-myaddition"><a href="#">医生</a></li>
+                    <li id="nav-checkMORE" role="presentation"><a href="#">查看全部></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--这儿传入后端的变量-->
+        <!--图片尺寸是230*125-->
+        <!--promoted-box中具体值需要后端填写-->
+        <!--CHANGE-->
+        <div id="promoted-box1">
+            <div class="promoted-inner-top">
+                <a href="#">
+                    <img id="box1-img" src="../static/img/baidu_06.jpg">
+                    <div class="word-box">
+                        <p class="l">中日友好医院</p>
+                        <p class="r">
+                            [三甲] [医保]
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="promoted-inner-bottom">
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="promoted-box2">
+            <div class="promoted-inner-top">
+                <a href="#">
+                    <img id="box2-img" src="../static/img/baidu_06.jpg">
+                    <div class="word-box">
+                        <p class="l">北京协和医院</p>
+                        <p class="r">
+                            [三甲] [医保]
+                        </p>
+                    </div>
+                </a>
 
+            </div>
+            <div class="promoted-inner-bottom">
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="promoted-box3">
+            <div class="promoted-inner-top">
+                <a href="#">
+                    <img id="box3-img" src="../static/img/baidu_06.jpg">
+                    <div class="word-box">
+                        <p class="l">北京大学国际医院</p>
+                        <p class="r">
+                            [三甲] [医保]
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="promoted-inner-bottom">
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="news">
-
+        <div id="news-title">
+            <div id="news-title-top">最新公告</div>
+            <a href="#">
+                <p class="r">| 更多</p>
+            </a>
+        </div>
+        <div id="news-detail">
+            <p>1.防护策略升级通知</p>
+            <p>2.首都儿科研究所附属儿童医院...</p>
+            <p>3.Greatfools' project is best</p>
+            <!--<p>4.第4点</p>-->
+        </div>
     </div>
 </div>
 <div class="footer">
