@@ -1,0 +1,32 @@
+#registerTitleRow {
+    margin-bottom: 40px !important;
+}
+#registerLblTail{
+    padding-bottom: 1.8em;
+    border-bottom: solid #5fbff2 2px;
+}
+#registerLbl{
+    border-bottom: 1.5em solid #5fbff2;
+    border-right:1em solid transparent;
+    height: 0;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+}
+form div{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.formDiv{
+    /*width: 80px;*/
+    text-align: right;
+}
+.lblGrey{
+    color:#c1c1c1;
+}
+.btnOrange{
+    background-color: #f7b52c;
+}
+#registerBtn{
+    color: #fff;
+}
