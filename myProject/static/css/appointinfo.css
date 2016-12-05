@@ -1,3 +1,6 @@
+#appointinfo{
+    padding-top: 10px;
+}
 .content{
     position: relative;
     top:120px;
@@ -40,6 +43,8 @@ article *{
 .usrinfolink {
     color: #60bff2;
     font-size: 14px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 .usrinfolink:hover{
     color: #3e9dd0;
@@ -65,15 +70,22 @@ article *{
     position: absolute;
     top: 10px;
 }*/
-#atcllabel{
-    background-color: #5fbff2;
-    font-size:14px;
-    margin: 0px !important;
+/*#atcllabel{*/
+    /*background-color: #5fbff2;*/
+    /*font-size:14px;*/
+    /*margin: 0px !important;*/
     /*height:2em;*/
     /*padding-top: 0.5em;*/
     /*padding-bottom: 0.5em;*/
     /*vertical-align: middle;*/
-    color:#fff;
+    /*color:#fff;*/
+/*}*/
+#atcllabel{
+    margin: 0px !important;
+    font-size: 18px;
+    color: #000;
+    padding: 0.5em;
+    border-bottom: solid #60bff2 2px;
 }
 #atcllabel *{
     margin: 0px 0px 0px 0px !important;

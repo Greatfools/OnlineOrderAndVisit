@@ -1,3 +1,6 @@
+#myinfo{
+    padding-top: 10px;
+}
 .content{
     position: relative;
     top:120px;
@@ -17,9 +20,11 @@ aside *{
     margin-right: 0px;!important;
     padding-right:0px;!important;
 }
-.usrinfolink {
+.usrinfolink{
     color: #60bff2;
     font-size: 14px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 .usrinfolink:hover{
     color: #3e9dd0;
@@ -53,9 +58,25 @@ aside *{
     background-color: #60bff2;
     color: #fff;
 }
+.myInfoLblSelected:hover{
+    color: #e1e9f0;
+}
+/*.myInfoLblSelected:visited{*/
+    /*color:#fff;*/
+/*}*/
 .myInfoLblUnSelected{
     background-color: transparent;
     color: #00b3ec;
+}
+.myInfoLblUnSelected:hover{
+    color: #00a2db;
+}
+/*.myInfoLblUnSelected:visited{*/
+    /*color: #00b3ec;*/
+/*}*/
+#myInfoCntntDiv{
+    margin: 0px 0px 0px 0px !important;
+    padding: 1em 0px 0px 0px !important;
 }
 .myInfoGrey{
     padding-right: 1em;
@@ -67,4 +88,12 @@ aside *{
 }
 .myInfoCntntRow{
     margin: 1em;
+}
+.changePWRow{
+    margin: 1em 0px 1em 0px !important;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+#changePWForm{
+    padding-top: 2em;
 }
