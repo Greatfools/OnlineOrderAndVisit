@@ -73,6 +73,12 @@ body {
 .submit input{
     left:72px;
 }
+.submit input:hover{
+    background-color: #2BA5ED;
+}
+.submit a:hover{
+    background-color: #2BA5ED;
+}
 .submit a{
     left:220px;
     text-decoration: none;
@@ -100,6 +106,7 @@ body {
     top:-20px;
     right:-20px;
     cursor: pointer;
+    z-index: 10002;
 }
 .fastTop {
     width: 100%;
