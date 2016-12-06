@@ -1,0 +1,70 @@
+.content{
+    position: relative;
+    top:120px;
+}
+
+aside{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    text-align: center;
+    border-right-color: #ddd;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+aside *{
+    margin-bottom: 14px;
+    margin-top: 14px;
+    margin-right: 0px;!important;
+    padding-right:0px;!important;
+}
+.usrinfolink {
+    color: #60bff2;
+    font-size: 14px;
+}
+.usrinfolink:hover{
+    color: #3e9dd0;
+    text-decoration: none;
+}
+.usrselected{
+    margin: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: #60bff2;
+    /*height:40px;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#fff;
+    text-align: center;
+    font-size:14px;
+}
+.usrselected:before{
+    height:13px;
+}
+#myInfoLbl{
+    border-bottom: solid #60bff2 2px;
+    margin: 1em;
+    margin-top: 0px;
+}
+#myInfoLbl span{
+    text-align: center;
+    padding: 0.5em;
+}
+.myInfoLblSelected{
+    background-color: #60bff2;
+    color: #fff;
+}
+.myInfoLblUnSelected{
+    background-color: transparent;
+    color: #00b3ec;
+}
+.myInfoGrey{
+    padding-right: 1em;
+    color: #888;
+    text-align: right;
+}
+.infoText{
+    color: #4c4948;
+}
+.myInfoCntntRow{
+    margin: 1em;
+}
