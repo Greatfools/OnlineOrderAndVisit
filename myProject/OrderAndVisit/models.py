@@ -7,9 +7,16 @@ from django.db import models
 class Hospital(models.Model):
     name = models.CharField(max_length = 20)
     address =  models.CharField(max_length = 100)
+<<<<<<< HEAD
     img = models.CharField(max_length = 50)#存储为一个链接
     introduction = models.TextField(null = True)
     phonenum = models.CharField(max_length = 20)
+=======
+    img = models.CharField(max_length = 50)
+    introduction = models.TextField(null = True)
+    phonenum = models.CharField(max_length = 20)
+    impoOffice = models.CharField(max_length = 50)
+>>>>>>> 6c9beaa7a03a283aeeb07258a87d430f09d07072
 
     def __unicode__(self):
         return self.name
@@ -42,7 +49,10 @@ class Doctor(models.Model):
     title = models.CharField(max_length = 20)
     introduction = models.TextField(null = True)
     address = models.CharField(max_length = 100)
+<<<<<<< HEAD
     fee = models.FloatField()#医生的挂号费
+=======
+>>>>>>> 6c9beaa7a03a283aeeb07258a87d430f09d07072
 
     def __unicode__(self):
         return self.name
