@@ -122,6 +122,7 @@ body {
 }
 .nav-myaddition{
     width: 120px;
+    text-align: center;
 }
 #nav-checkMORE{
     position: absolute;
@@ -195,7 +196,7 @@ body {
     /*padding: auto 10%;*/
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #dddddd;
+    background-color: #fbfbfb;
     height:42px;
     font-size: 16px;
 }
@@ -207,7 +208,7 @@ body {
 }
 #news-title-top{
     float: left;
-    color: #eea236;
+    color: #fcbc2f;
 }
 #news-detail{
     margin: 0px;
