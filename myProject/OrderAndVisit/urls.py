@@ -12,6 +12,10 @@ urlpatterns = [
 	url(r'^register', views.register, name = 'register'),
 	# 搜索
 	url(r'^search/$', views.search),
+
+	url(r'^hospitalSearch/(?P<hospitalname>\w+)/$', views.hospitalSearch, name='hospitalSearch'),
+	
+	url(r'^doctorSearch/(?P<doctorname>\w+)/$', views.doctorSearch, name='doctorSearch'),
 	# 显示科室信息
 	url(r'^officeinfo/$',views.officeinfo, name = 'officeinfo'),
 	# 显示医院信息

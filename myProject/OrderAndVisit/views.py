@@ -372,3 +372,41 @@ def register(request):
 			request.session['member_id'] = res.id
 	# return where? i think it should be discussed
 	return HttpResponseRedirect('/index/?errorMessage=errors')
+
+def hospitalSearch(request,hospitalname):
+    hospitals = Hospital.objects.filter(name__contains=hospitalname)
+    # data = serializers.serialize("json", hospitals)
+    # print data
+
+    output = ""
+    hospitalnum = 0
+    for h in hospitals:
+        hospitalnum += 1
+        doctors = Doctor.objects.filter(departmentId__id=h.id)
+        doctornum = 0
+        for doctor in doctors:
+            doctornum += 1
+
+        orders = OrderMessage.objects.filter(visitId__doctorId__departmentId__id=h.id)
+        ordernum = 0
+        for order in orders:
+            ordernum += 1
+        output += "{},{},{},{},{},{}<br>\n".format(h.name,h.img,h.introduction,doctornum,ordernum,h.address)
+    output += "find "+ '%d' % hospitalnum +" hospitals<br>\n"
+    print output
+
+    return HttpResponse("%s" % output)
+
+def doctorSearch(request,doctorname):
+    doctors = Doctor.objects.filter(name__contains=doctorname).prefetch_related()
+    # data = serializers.serialize("json", doctors)
+    # print data
+
+    output = ""
+    doctornum = 0
+    for doctor in doctors:
+        doctornum += 1
+        output += "{},{},{},{},{}<br>\n".format(doctor.name,doctor.title,doctor.departmentId.hospitalId.name,doctor.departmentId.name,doctor.introduction)
+    output += "find " +'%d' % doctornum + " doctors<br>\n"
+    print output
+    return HttpResponse("%s" % output)

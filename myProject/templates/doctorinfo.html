@@ -16,10 +16,10 @@
     <div class="row" id="docBscInfo">
         <img class="col-lg-1 col-md-1 col-lg-offset-1 col-md-offset-1 img-responsive" id="docImg" src="../static/img/doctorinfo/doctoricon.png"/>
         <div class="col-lg-9 col-md-9" id="docInfoCntnt">
-            <span id="docName">姚明 </span><small id="docJob">主任医师</small><br>
-            <span id="docHosName">中国医学科学院 </span><span id="docClassName">心血管内科</span><br>
-            <span class="infogrey">地址: </span><span id="docAddr">北京市西城区北礼士路167号</span><br>
-            <span class="infogrey">简介: </span><span id="docIntro">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+            <span id="docName">{{name}} </span><small id="docJob">主任医师</small><br>
+            <span id="docHosName">{{hos}} </span><span id="docClassName">{{dep}}</span><br>
+            <span class="infogrey">地址: </span><span id="docAddr">{{address}}</span><br>
+            <span class="infogrey">简介: </span><span id="docIntro">{{info}}</span>
         </div>
     </div>
     <div class="row" id="docAppntLbl">
@@ -32,13 +32,10 @@
                 <thead>
                 <tr>
                     <th rowspan="2" id="specialTH">就诊时段</th>
-                    <th>xx月xx日</th>
-                    <th>xx月xx日</th>
-                    <th>xx月xx日</th>
-                    <th>xx月xx日</th>
-                    <th>xx月xx日</th>
-                    <th>xx月xx日</th>
-                    <th>xx月xx日</th>
+                    <!--<th>xx月xx日</th>-->
+                    {% for department in date %}
+                        <th>{{department}}</th>
+                    {% endfor %}
                 </tr>
                 <tr class="appntTimeGrey">
                     <th>今天</th>
@@ -53,33 +50,36 @@
                 <tbody>
                 <tr>
                     <td>上午</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="appntBlue"><a href="#">点击预约</a></td>
-                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                    {% for morn in morning %}
+                        {% if morn %}
+                           <td class="appntBlue"><a href="#">点击预约id={{morn}}</a></td>
+                        {% else %}
+                           <td></td>
+                        {% endif %}
+
+                    {% endfor %}
                 </tr>
                 <tr>
                     <td>下午</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="appntBlue"><a href="#">点击预约</a></td>
-                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                    {% for after in afternoon %}
+                        {% if after %}
+                           <td class="appntBlue"><a href="#">点击预约id={{after}}</a></td>
+                        {% else %}
+                           <td></td>
+                        {% endif %}
+
+                    {% endfor %}
                 </tr>
                 <tr>
                     <td>晚上</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="appntBlue"><a href="#">点击预约</a></td>
-                    <td class="appntBlue"><a href="#">点击预约</a></td>
+                    {% for even in evening %}
+                        {% if even %}
+                           <td class="appntBlue"><a href="#">点击预约id=={{even}}</a></td>
+                        {% else %}
+                           <td></td>
+                        {% endif %}
+
+                    {% endfor %}
                 </tr>
 
                 </tbody>
