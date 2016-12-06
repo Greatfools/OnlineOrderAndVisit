@@ -55,6 +55,47 @@ body {
 .dl_password{
     top:126px;
 }
+.search-option{
+    width:80px;
+    height:36px;
+    display: inline-block;
+    background-color: #64BFEF;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 8px;
+    cursor: pointer;
+}
+.search-selection li{
+    list-style: none;
+    height:36px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #64BFEF;
+    padding-top: 8px;
+}
+.search-selection li:hover{
+    background-color: #64BFEF;
+    cursor: pointer;
+}
+.search-selection{
+    position: absolute;
+    height: 108px;
+    width:80px;
+    top:36px;
+    background-color: #ffffff;
+    z-index: 10003;
+
+}
+.search-selection ul{
+    position: absolute;
+    height:108px !important;
+    width:80px !important;
+    padding-left:0;
+    top:0;
+    left:0;
+    border:1px solid #64BFEF;
+
+}
 .submit{
     position: absolute;
     top: 200px;
@@ -124,8 +165,14 @@ body {
     /*position: absolute;*/
     position: relative;
 }
-
-.logo, .login {
+.logo{
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    margin:0;
+    top:5px;
+}
+.login {
     width: 134px;
     height: 36px;
     position: absolute;
@@ -146,6 +193,7 @@ body {
     background-color: #ffffff;
     left: 134px;
     margin: 0;
+    display: none;
 }
 
 .keyword,#searchForm{
