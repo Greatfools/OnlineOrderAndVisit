@@ -26,7 +26,10 @@
     width: 1020px;
     height: 750px;
     position:absolute;
-    top:241px;
+    /*top:241px;*/
+    /*重要的更改，改变了整个布局*/
+    /*footbar和index-left的位置也随之改变*/
+    top: 0px;;
     border-top:1px solid #f5f5f5;
     border-bottom:1px solid #f5f5f5;
 }
@@ -39,6 +42,7 @@
     border:1px solid #f5f5f5;
     padding-top: 14px;
     padding-left: 8px ;
+    display: none;
 }
 .index-right{
     position: absolute;
@@ -144,6 +148,8 @@
 }
 .page-direct{
     position: absolute;
-    top: 930px;
+    /*top: 930px;*/
+    top:680px;
     right: 500px;
 }
+
