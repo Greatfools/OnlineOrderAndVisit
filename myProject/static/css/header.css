@@ -165,8 +165,14 @@ body {
     /*position: absolute;*/
     position: relative;
 }
-
-.logo, .login {
+.logo{
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    margin:0;
+    top:5px;
+}
+.login {
     width: 134px;
     height: 36px;
     position: absolute;
@@ -187,6 +193,7 @@ body {
     background-color: #ffffff;
     left: 134px;
     margin: 0;
+    display: none;
 }
 
 .keyword,#searchForm{
