@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../static/css/hosinfo.css">
 </head>
-<body>
+<body onload="load()">
 <!--<div class="header"></div>-->
 <div class="container-fluid">
     <div class="row">
@@ -36,21 +36,21 @@
             <p>{{info}}</p>
             <div class="hosCntntLbl">门诊科室</div>
             <!--<div class="hosClass row">-->
-                <!--<div class="hosClassTitle col-lg-1 col-md-1">内科</div>-->
+                <!--<div class="hosClassTitle col-lg-2 col-md-2">内科</div>-->
                 <!--<div class="hosClassCntnt col-lg-10 col-md-10">xxx xxx xxxxxxxx xxxx<br> xxxx  xxxx<br> xxx</div>-->
             <!--</div>-->
             <!--<div class="hosClass row">-->
-                <!--<div class="hosClassTitle col-lg-1 col-md-1">外科</div>-->
+                <!--<div class="hosClassTitle col-lg-2 col-md-2">外科</div>-->
                 <!--<div class="hosClassCntnt col-lg-10 col-md-10">xxx xxx xxxxxxxx xxxx<br> xxxx  xxxx<br> xxx</div>-->
             <!--</div>-->
             <!--<div class="hosClass row">-->
-                <!--<div class="hosClassTitle col-lg-1 col-md-1">妇产科</div>-->
+                <!--<div class="hosClassTitle col-lg-2 col-md-2">妇产科</div>-->
                 <!--<div class="hosClassCntnt col-lg-10 col-md-10">xxx xxx xxxxxxxx xxxx<br> xxxx  xxxx<br> xxx</div>-->
             <!--</div>-->
             {% regroup dep by classinfo as class_list %}
             {% for class in class_list %}
             <div class="hosClass row">
-                <div class="hosClassTitle col-lg-1 col-md-1">{{class.grouper}}</div>
+                 <div class="hosClassTitle col-lg-2 col-md-2">{{class.grouper}}</div>
                  <div class="hosClassCntnt col-lg-10 col-md-10">
                      {% for item in class.list %}
                         {{item.name}}
@@ -65,6 +65,7 @@
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
 <script src="../static/js/bootstrap.js"></script>
+<script src="../static/js/hosinfo.js"></script>
 <!--
 <script src="../static/js/addheader.js"></script>
 -->

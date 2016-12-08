@@ -50,9 +50,11 @@ aside *{
     margin: 1em;
     margin-top: 0px;
 }
-#myInfoLbl span{
+#myInfoLbl button{
     text-align: center;
     padding: 0.5em;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
 }
 .myInfoLblSelected{
     background-color: #60bff2;
