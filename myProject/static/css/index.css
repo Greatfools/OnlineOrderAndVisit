@@ -129,7 +129,7 @@ body {
     right: 0px;
     float: left;
 }
-#promoted-box1{
+.promoted-box1{
     height: 445px;
     width: 230px;
     margin: 0px;
@@ -137,7 +137,7 @@ body {
     left: 0px;
     padding: 20px 0px;
 }
-#promoted-box2{
+.promoted-box2{
     height: 445px;
     width: 230px;
     margin: 0px;
@@ -145,7 +145,7 @@ body {
     left: 255px;
     padding: 20px 0px;
 }
-#promoted-box3{
+.promoted-box3{
     height: 445px;
     width: 230px;
     margin: 0px;

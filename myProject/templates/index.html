@@ -93,9 +93,9 @@
         <div id="nav">
             <div id="nav-mynav">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active nav-myaddition"><a href="#">医院</a></li>
-                    <li role="presentation" class="nav-myaddition"><a href="#">科室</a></li>
-                    <li role="presentation" class="nav-myaddition"><a href="#">医生</a></li>
+                    <li role="presentation" class="active nav-myaddition" id="navi-hosp"><a>医院</a></li>
+                    <!--<li role="presentation" class="nav-myaddition"><a>科室</a></li>-->
+                    <li role="presentation" class="nav-myaddition" id="navi-doctor"><a >医生</a><!--医生--></li>
                     <li id="nav-checkMORE" role="presentation"><a href="#">查看全部></a></li>
                 </ul>
             </div>
@@ -104,10 +104,10 @@
         <!--图片尺寸是230*125-->
         <!--promoted-box中具体值需要后端填写-->
         <!--CHANGE-->
-        <div id="promoted-box1">
+        <div id="promoted-box1" class="promoted-box1">
             <div class="promoted-inner-top">
                 <a href="#">
-                    <img id="box1-img" src="../static/img/baidu_06.jpg">
+                    <img class="box-img" src="../static/img/baidu_06.jpg">
                     <div class="word-box">
                         <p class="l">中日友好医院</p>
                         <p class="r">
@@ -143,10 +143,10 @@
                 </div>
             </div>
         </div>
-        <div id="promoted-box2">
+        <div id="promoted-box2" class="promoted-box2">
             <div class="promoted-inner-top">
                 <a href="#">
-                    <img id="box2-img" src="../static/img/baidu_06.jpg">
+                    <img class="box-img" src="../static/img/baidu_06.jpg">
                     <div class="word-box">
                         <p class="l">北京协和医院</p>
                         <p class="r">
@@ -183,10 +183,10 @@
                 </div>
             </div>
         </div>
-        <div id="promoted-box3">
+        <div id="promoted-box3" class="promoted-box3">
             <div class="promoted-inner-top">
                 <a href="#">
-                    <img id="box3-img" src="../static/img/baidu_06.jpg">
+                    <img class="box-img" src="../static/img/baidu_06.jpg">
                     <div class="word-box">
                         <p class="l">北京大学国际医院</p>
                         <p class="r">
@@ -222,6 +222,123 @@
                 </div>
             </div>
         </div>
+
+        <div id="promoted-box4" class="promoted-box1 hidden">
+            <div class="promoted-inner-top">
+                <a href="#">
+                    <img class="box-img" src="../static/img/dl_close.png">
+                    <div class="word-box">
+                        <p>医生姓名:xxxxx</p>
+                        <p>所属医院:xxxxx</p>
+                        <p>科室:xxxxx</p>
+                    </div>
+                </a>
+            </div>
+            <!--<div class="promoted-inner-bottom">
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+            </div>-->
+        </div>
+        <div id="promoted-box5" class="promoted-box2 hidden">
+            <div class="promoted-inner-top">
+                <a href="#">
+                    <img class="box-img" src="../static/img/dl_close.png">
+                    <div class="word-box">
+                        <p>医生姓名:xxxxx</p>
+                        <p>所属医院:xxxxx</p>
+                        <p>科室:xxxxx</p>
+                    </div>
+                </a>
+
+            </div>
+            <!--<div class="promoted-inner-bottom">
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+            </div>-->
+        </div>
+        <div id="promoted-box6" class="promoted-box3 hidden">
+            <div class="promoted-inner-top">
+                <a href="#">
+                    <img class="box-img" src="../static/img/dl_close.png">
+                    <div class="word-box">
+                        <p>医生姓名:xxxxx</p>
+                        <p>所属医院:xxxxx</p>
+                        <p>科室:xxxxx</p>
+                    </div>
+                </a>
+            </div>
+            <!--<div class="promoted-inner-bottom">
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+                <div class="pib-inner">
+                    <a href="#">
+                        xxxxxxx医院
+                    </a>
+                    <p>
+                        [三甲] [医保]
+                    </p>
+                </div>
+            </div>-->
+        </div>
+
     </div>
     <div class="news">
         <div id="news-title">
