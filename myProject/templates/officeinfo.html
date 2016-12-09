@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../static/css/officeinfo.css">
+</head>
+<body>
+<!---->
+<div class="container">
+    <div class="row" id="appointTitleLbl">
+        <div class="col-lg-1 col-md-1">预约挂号</div>
+        <a class="col-lg-2 col-md-2 col-lg-offset-9 col-md-offset-9">选择其他医院</a>
+    </div>
+    <div class="row" id="hosInfo">
+        <div class="row col-lg-12 col-md-12" id="hosInfoCntnt">
+            <div class="col-lg-12 col-md-12" id="hosInfoTitle"><b>北一三院-皮肤科门诊</b></div>
+            <img src="" class="img-responsive col-lg-2 col-md-2" />
+            <div class="col-lg-10 col-md-10" id="hosInfoSim">
+                <div id="hosInfoAddr">xxxxx</div>
+                <div id="hosInfoTel">xxxxx</div>
+                <div id="hosInfoIntro">xxxxxxx</div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="appointCntntLbl">
+        <div class="col-lg-2 col-md-2"><b>科室排班表</b></div>
+        <a href="" class="col-lg-2 col-md-2">返回科室列表</a>
+    </div>
+    <div class="row" id="appointCntnt">
+        <div class="col-lg-9 col-md-9" id="tableRoot">
+            <table class="col-lg-9 col-md-9 table table-bordered table-hover ">
+                <thead>
+                <tr>
+                    <th rowspan="2" id="specialTH">就诊时段</th>
+                    <!--<th>xx月xx日</th>-->
+                    {% for department in date %}
+                    <th>{{department}}</th>
+                    {% endfor %}
+                </tr>
+                <tr class="appntTimeGrey">
+                    <th>今天</th>
+                    <th>明天</th>
+                    <th>后天</th>
+                    <th>大后天</th>
+                    <th>大大后天</th>
+                    <th>大大大后天</th>
+                    <th>大大大大后天</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>上午</td>
+                    {% for morn in morning %}
+                    {% if morn %}
+                    <td class="appntBlue"><a href="#">点击预约id={{morn}}</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>下午</td>
+                    {% for after in afternoon %}
+                    {% if after %}
+                    <td class="appntBlue"><a href="#">点击预约id={{after}}</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>晚上</td>
+                    {% for even in evening %}
+                    {% if even %}
+                    <td class="appntBlue"><a href="#">点击预约id=={{even}}</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3 col-lg-3" id="appointRuleDiv">
+            <div id="appointRuleLbl">预约规则</div>
+            <span class="InfoBlack">dddd</span>
+            <span class="InfoGrey">yyyyy</span>
+        </div>
+    </div>
+    <div class="row" id="appointDocList">
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src=""/>
+        <div class="col-lg-2 col-md-2 docNameBlack">xxx医生</div>
+        <div class="col-lg-2 col-md-2 col-lg-offset-5 col-md-offset-5">
+            <span class="feeGrey">挂号费: </span><span class="feeRed">$5</span><br>
+            <span class="feeGrey">剩余号: </span><span class="feeOrange">7</span>
+        </div>
+        <button class="btn btn-info col-lg-offset-1 col-md-offset-1 col-lg-1 col-md-1">预约挂号</button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+</html>
