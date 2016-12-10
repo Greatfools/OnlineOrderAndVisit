@@ -80,7 +80,8 @@ def officeinfo(request,officeid,dateid):
 	if d_id:
 		visitList = VisitMessage.objects.filter(visitDate=d_id[0:-1], visitTime=d_id[-1],
 												doctorId__departmentId_id__exact=1, restNumber__gt = 0)
-		#doctorList = visitList.doctorId
+	else:
+		visitList = []
 	return render_to_response ('officeinfo.html',{"dateprint":dateprint,"dateweek":dateweek,
 												  "morning":record[0], "afternoon":record[1],
 												  "evening":record[2],"h":h, "d_id":d_id, "o_id":o_id,
