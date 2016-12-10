@@ -21,14 +21,20 @@
             <div class="col-lg-12 col-md-12" id="hosInfoTitle"><b>{{h.name}}</b></div>
             <img src="{{h.img}}" class="img-responsive col-lg-2 col-md-2" />
             <div class="col-lg-10 col-md-10" id="hosInfoSim">
+<<<<<<< HEAD
                 <div id="hosInfoAddr">地址：{{h.address}}</div>
                 <div id="hosInfoTel">电话：{{h.phonenum}}</div>
                 <div id="hosInfoIntro">简介：{{h.introduction}}</div>
+=======
+                <span class="hosInfoBlack">地址: </span><span class="hosInfoGrey">{{}}</span><br>
+                <span class="hosInfoBlack">电话: </span><span class="hosInfoGrey">{{}}</span><br>
+                <span class="hosInfoBlack">简介: </span><span class="hosInfoGrey">{{}}</span>
+>>>>>>> 1dfd817ea0fc8c80c3cfb6556b07da25a12c21f6
             </div>
         </div>
     </div>
     <div class="row" id="appointCntntLbl">
-        <div class="col-lg-2 col-md-2"><b>科室排班表</b></div>
+        <span class="col-lg-2 col-md-2"><b>科室排班表</b></span>
         <a href="" class="col-lg-2 col-md-2">返回科室列表</a>
     </div>
     <div class="row" id="appointCntnt">
@@ -100,11 +106,20 @@
     </div>
     {% for vis in visitList %}
     <div class="row" id="appointDocList">
+<<<<<<< HEAD
         <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/new_search_doctor_03.png"/>
         <div class="col-lg-2 col-md-2 docNameBlack"><a href="#">{{vis.doctorId.name}}</a></div>
         <div class="col-lg-2 col-md-2 col-lg-offset-5 col-md-offset-5">
             <span class="feeGrey">挂号费: </span><span class="feeRed">{{vis.doctorId.fee}}元</span><br>
             <span class="feeGrey">剩余号: </span><span class="feeOrange">{{vis.restNumber}}</span>
+=======
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src=""/>
+        <span class="col-lg-2 col-md-2 docNameBlack">xxx医生</span>
+        <div class="col-lg-2 col-md-2 docIntro">简介:xxx</div>
+        <div class="col-lg-2 col-md-2 col-lg-offset-3 col-md-offset-3">
+            <span class="feeGrey">挂号费: </span><span class="feeRed">$5</span><br>
+            <span class="feeGrey">剩余号: </span><span class="feeOrange">7</span>
+>>>>>>> 1dfd817ea0fc8c80c3cfb6556b07da25a12c21f6
         </div>
         <button class="btn btn-info col-lg-offset-1 col-md-offset-1 col-lg-1 col-md-1">预约挂号</button>
     </div>
