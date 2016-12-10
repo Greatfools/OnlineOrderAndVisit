@@ -28,3 +28,9 @@ $('#navi-hosp').click(function () {
     $('#navi-doctor').removeClass('active');
     $('#navi-hosp').addClass('active');
 })
+$('.ct-box-bottom-blk').hover(function () {
+    var _this = $(this)
+    _this.siblings().css('background-color' ,'#555555');
+    _this.css('background-color','#dddddd');
+})
+

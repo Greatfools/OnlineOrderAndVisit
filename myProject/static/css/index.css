@@ -35,6 +35,24 @@ body {
     height: 266px;
     position: relative;
 }
+.ct-box-bottom{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 400px;
+}
+.ct-box-bottom-blk{
+    float: right;
+    width: 60px;
+    height: 12px;
+    background-color: #555555;
+    opacity: 0.6;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+.ct-box-bottom-blk :hover{
+    background-color: #dddddd;
+}
 .fastapt-box{
     height: 100%;
     width: 360px;
@@ -42,7 +60,9 @@ body {
     background-color: #ebebeb;
     border-radius: 5px;
     position: relative;
+    opacity: 0.85;
 }
+
 .fastapt-box .title{
     font-size: 16px;
     width: 100%;
@@ -178,6 +198,9 @@ body {
     float: right;
 }
 .pib-inner{
+    margin-top: 20px;
+}
+.p-box-46{
     margin-top: 20px;
 }
 .news{
