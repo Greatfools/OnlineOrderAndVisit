@@ -6,12 +6,11 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../static/css/doctorinfo.css">
+    <link rel="stylesheet" href="/static/css/doctorinfo.css">
 </head>
 <body>
-<div class="header"></div>
 <div class="content-fluid" >
     <div class="row" id="docBscInfo">
         <img class="col-lg-1 col-md-1 col-lg-offset-1 col-md-offset-1 img-responsive" id="docImg" src="../static/img/doctorinfo/doctoricon.png"/>
@@ -38,13 +37,16 @@
                     {% endfor %}
                 </tr>
                 <tr class="appntTimeGrey">
-                    <th>今天</th>
-                    <th>明天</th>
-                    <th>后天</th>
-                    <th>大后天</th>
-                    <th>大大后天</th>
-                    <th>大大大后天</th>
-                    <th>大大大大后天</th>
+                    <!--<th>今天</th>-->
+                    <!--<th>明天</th>-->
+                    <!--<th>后天</th>-->
+                    <!--<th>大后天</th>-->
+                    <!--<th>大大后天</th>-->
+                    <!--<th>大大大后天</th>-->
+                    <!--<th>大大大大后天</th>-->
+                    {% for w in week %}
+                        <th>星期{{w}}</th>
+                    {% endfor %}
                 </tr>
                 </thead>
                 <tbody>
@@ -52,7 +54,8 @@
                     <td>上午</td>
                     {% for morn in morning %}
                         {% if morn %}
-                           <td class="appntBlue"><a href="#">点击预约id={{morn}}</a></td>
+                           {% url 'orderinfo' morn as ourl %}
+                           <td class="appntBlue"><a href="./orderinfo/{{ morn }}">点击预约id={{ morn }}</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -63,7 +66,8 @@
                     <td>下午</td>
                     {% for after in afternoon %}
                         {% if after %}
-                           <td class="appntBlue"><a href="#">点击预约id={{after}}</a></td>
+                           {% url 'orderinfo' after as ourl %}
+                           <td class="appntBlue"><a href="./orderinfo/{{ after }}">点击预约id={{after}}</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -74,7 +78,8 @@
                     <td>晚上</td>
                     {% for even in evening %}
                         {% if even %}
-                           <td class="appntBlue"><a href="#">点击预约id=={{even}}</a></td>
+                           {% url 'orderinfo' even as ourl %}
+                           <td class="appntBlue"><a href="./orderinfo/{{ even }}">点击预约id={{ even }}</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -91,9 +96,7 @@
         </div>
     </div>
 </div>
-<div class="footer"></div>
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
 <script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/doctorinfo.js"></script>
 </html>

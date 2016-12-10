@@ -1,14 +1,18 @@
 # coding=utf-8
 from django.shortcuts import render
-from django.db import connection, models
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import render_to_response
 
-from .models import *
-from django.http import HttpResponse
 
-from django.http import HttpResponseRedirect
+
+from .models import *
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import Template, Context
+from django.db import connection, models
+import datetime, calendar
+from  django.template.loader import get_template
+import time
 
 import datetime
 
@@ -29,12 +33,16 @@ def search(request):
 
 # 测试搜索用
 def header(request):
-	return render_to_response('head - 副本.html')# 样本，需要改变
+	return render_to_response('header.html')# 样本，需要改变
 
 # 显示科室信息
-def officeinfo(request):
+def officeinfo(request,officeid,dateid):
 	Week = ["日","一","二","三","四","五","六"]
-	d = Department.objects.get(id = 1)
+	daytime = ["m","a","e"]
+	o_id = officeid
+	d_id = dateid
+	o_id = 1
+	d = Department.objects.get(id = o_id)
 	h = Hospital.objects.get(id = d.hospitalId_id)
 	s = datetime.datetime.today()
 	w = datetime.datetime.now().weekday() + 1
@@ -47,9 +55,9 @@ def officeinfo(request):
 		visitdate.append((s + datetime.timedelta(days=num)).strftime("%Y-%m-%d"))
 		dateweek.append(Week[(w+num)%7])
 		num = num+1
-	alldoctor = Doctor.objects.filter(departmentId_id = 1)
+	# alldoctor = Doctor.objects.filter(departmentId_id = 1)
 
-	record = [[False for x in range(3)] for y in range(7)]
+	record = [[False for x in range(7)] for y in range(3)]
 	for i in range(7):
 		for j in range(3):
 			if j == 0:
@@ -70,70 +78,20 @@ def officeinfo(request):
 
 			row = cursor.fetchone()
 			if row[0] > 0:
-				record[i][j] = True
+				record[j][i] = visitdate[i] + daytime[j]
 			else:
-				record[i][j] = False
-	visitList = VisitMessage.objects.filter(visitDate = "2016-11-27", visitTime = "m", doctorId__departmentId_id__exact = 1)
-	return render_to_response ('doctorinfo.html',{'dateprint':dateprint, 'dateweek':dateweek})
+				record[j][i] = ""
+	if d_id:
+		visitList = VisitMessage.objects.filter(visitDate=d_id[0:-1], visitTime=d_id[-1],
+												doctorId__departmentId_id__exact=1, restNumber__gt = 0)
+	else:
+		visitList = []
+	return render_to_response ('officeinfo.html',{"dateprint":dateprint,"dateweek":dateweek,
+												  "morning":record[0], "afternoon":record[1],
+												  "evening":record[2],"h":h, "d_id":d_id, "o_id":o_id,
+												  "visitList":visitList})
 
-#不知道谁写的hospital，先注释了（这里好多个hospital啊）
-# def hospital(request):
-# 	hos = Hospital.objects.get(id='1')
-# 	dep = Department.objects.filter(hospitalId=hos.id).order_by("classinfo")
-#
-# 	cursor = connection.cursor()
-# 	cursor.execute("""
-# 					SELECT DISTINCT classinfo
-# 					FROM `OrderAndVisit_department`
-# 					ORDER BY classinfo
-# 					""" )
-#
-# 	row = cursor.fetchall()
-# 	#
-# 	# rows= [[] for i in range(len(row))]
-# 	# for department in dep:
-# 	# 	for i in range(len(row)):
-# 	# 		if department.classinfo==row[i-1]:
-# 	# 			rows[i-1].append(department)
-# 	# 			#
-#
-# 	fp=open('/home/jjj/Downloads/OnlineOrderAndVisit-master/myProject/templates/hosinfo.html')
-# 	t=Template(fp.read())
-# 	fp.close()
-# 	#t=get_template('doctorinfo.html')
-# 	html=t.render(Context({'name':hos.name,'address':hos.address,'phonenum':hos.phonenum,'docnum':'zhenzhi','info':hos.introduction,'row':row}))
-# 	return HttpResponse(html)
-
-#理由同上，到底写了几个hospital啊。。。。。。
-#def hospital(request):
-#    hos = Hospital.objects.get(id='1')
-#    dep = Department.objects.filter(hospitalId=hos.id).values('name','classinfo','id')
-#    return render_to_response('hosinfo.html',{'name':hos.name,'address':hos.address,'phonenum':hos.phonenum,'docnum':'zhenzhi','info':hos.introduction,'dep':dep})
-
-# 测试用（江竞捷）
-def hello(request):
-    #b=User(password='123',userName='jq',name='j',sex='man',birthday='20161123',idCard='1111',telephone='123',creditLevel='1')
-    #b.save()
-    #b=User.objects.get(name='j')
-    #s=b.userName
-    hos = Hospital.objects.get(id='1')
-    dep=Department.objects.filter(hospitalId=hos.id)
-    dname=[]
-    dclass=[]
-    for dm in dep:
-        dname.append(dm.name)
-        dclass.append(dm.classinfo)
-    doc = Doctor.objects.get(id='1')
-
-    vis = VisitMessage.objects.filter(doctorId=doc.id)
-    vtime=[]
-    for v in vis:
-        vtime.append(v.visitDate)
-    #return HttpResponse("{},{},{},{},{},{}".format(hos.name,hos.introduction,hos.address,hos.phonenum,dname,dclass))
-    #return HttpResponse("{},{},{},{},{},{}".format(doc.name,doc.title,doc.introduction,doc.address,doc.fee,vtime))
-	return HttpResponse()
-
-# 显示医生
+# 显示医生信息，单独页面
 def doctor(request):
 	Week = ["日", "一", "二", "三", "四", "五", "六"]
 	s = datetime.datetime.today()
@@ -188,10 +146,10 @@ def doctor(request):
 	t=Template(fp.read())
 	fp.close()
 	#t=get_template('doctorinfo.html')
-	html = t.render(Context({'date': dateprint,'name':doc.name,'info':doc.introduction,'address':doc.address,'dep':dep.name,'hos':hos.name,'morning':visitId[0],'afternoon':visitId[1],'evening':visitId[2]}))
+	html = t.render(Context({'date': dateprint,'name':doc.name,'info':doc.introduction,'address':doc.address,'dep':dep.name,'hos':hos.name,'morning':visitId[0],'afternoon':visitId[1],'evening':visitId[2],'week':dateweek}))
 	return HttpResponse(html)
 
-# 显示医院信息
+#　显示医院信息，单独页面
 def hospital(request):
 	hos = Hospital.objects.get(id='1')
 	dep = Department.objects.filter(hospitalId=hos.id).order_by("classinfo")
@@ -207,6 +165,32 @@ def hospital(request):
 					"""%(hos.id) )
 
 	row = cursor.fetchall()
+	cursor.execute("""
+	SELECT count( * )
+	FROM `OrderAndVisit_ordermessage`
+	WHERE visitId_id
+	IN (
+
+	SELECT id
+	FROM `OrderAndVisit_visitmessage`
+	WHERE doctorId_id
+	IN (
+
+	SELECT id
+	FROM `OrderAndVisit_doctor`
+	WHERE departmentId_id
+	IN (
+
+	SELECT id
+	FROM `OrderAndVisit_department`
+	WHERE hospitalId_id = '%s'
+	)
+	)
+	)
+	""" % (hos.id))
+
+	peopleNum = cursor.fetchall()
+
 	#
 	# rows= [[] for i in range(len(row))]
 	# for department in dep:
@@ -220,9 +204,74 @@ def hospital(request):
 	fp.close()
 
 	#t=get_template('doctorinfo.html')
-	html=t.render(Context({'name':hos.name,'address':hos.address,'phonenum':hos.phonenum,'docnum':row[0][0],'info':hos.introduction,'dep':dep}))
+	html=t.render(Context({'name':hos.name,'address':hos.address,'phonenum':hos.phonenum,'docnum':row[0][0],'info':hos.introduction,'dep':dep,'peoplen':peopleNum[0][0]}))
 	return HttpResponse(html)
 
+# 预约挂号，处理函数，跳转到？
+def orderInfo(request, vid):
+	#debug 1 userid
+	usrid=1
+	#visitid=1
+	#Debug 1
+	visitid=vid
+	o_time=time.strftime( ISOTIMEFORMAT, time.localtime(time.time()) )
+	print o_time
+	#credit
+	#rest
+	vis=VisitMessage.objects.filter(id=vid)
+	usr=User.objects.filter(id=usrid)
+	#update it
+	#cursor = connection.cursor()
+	#cursor.execute("SELECT COUNT(*) FROM OrderAndVisit_ordermessage GROUP BY visitId_id")
+	#raw = cursor.fetchone()
+	#cursor.close()
+	#print raw
+	if vis[0].restNumber > 0:
+		if usr[0].creditLevel > 0:
+			# if date < 7
+			rnm=vis[0].restNumber
+			VisitMessage.objects.filter(id=vid).update(restNumber=rnm-1)
+			cursor = connection.cursor()
+			cursor.execute("INSERT INTO OrderAndVisit_ordermessage(userId_id, visitId_id,ordertime) values (%s,%s,%s)",[usrid,visitid,o_time])
+			#Error Dealing
+			cursor.close()
+			msg="预约成功"
+		else:
+			msg="预约失败"
+	else:
+		msg="预约失败"
+	print usrid,vid,msg
+	return HttpResponseRedirect('../../')
+
+#　取消预约，处理函数，跳转到？
+def cancelInfo(request, oid):
+	o_time=time.strftime( ISOTIMEFORMAT, time.localtime(time.time()) )
+	usrid=1 #debug
+	visitid=oid
+	#Check of time to be continued......
+	#if order can be canceled
+	buf=OrderMessage.objects.filter(id=oid)
+	if usrid == buf[0].userId.id:
+		OrderMessage.objects.filter(id=oid).update(isCanceled=True)
+		ToBeCanceledOrder = OrderMessage.objects.filter(id=visitid)
+		#SQL
+		cursor = connection.cursor()
+		cursor.execute("INSERT INTO OrderAndVisit_ordercancelmessage(orderId_id,cancelTime) values (%s,%s)",[visitid,o_time])
+		cursor.close()
+		#Cope with payment
+	return HttpResponseRedirect('../')
+
+#　支付订单，处理函数，跳转到？
+def payInfo(request, oid):
+	#visitid=request.POST.visitid
+	visitid=oid #debug
+	usrid = 1 #debug
+	TF = OrderMessage.objects.filter(id=visitid)
+	if usrid == TF[0].userId.id:
+		OrderMessage.objects.filter(id=visitid).update(isPayed=True)
+	return HttpResponseRedirect('http://kevinfeng.moe/pay.html')
+
+# 用户预约信息，单独页面
 def appointInfo(request):
 	#release
 	#s_userid = request.user.id
@@ -236,86 +285,9 @@ def appointInfo(request):
 	#id is unique
 	print us.name
 	orderinfo = OrderMessage.objects.filter(userId=s_userid)
-	for o in OrderMessage.objects.filter(userId=s_userid):
-		print o.userId.id
-		#print o.visitId.id
-		#'unicode' object has no attribute 'utcoffset'
-		oid = o.visitId
-		vs = VisitMessage.objects.filter(id=oid.id)
-		#time Chinese
-		time = vs[0].visitDate #+ vs[0].visitTime
-		#hos Chinese
-		doct = Doctor.objects.filter(id=vs[0].doctorId.id)
-		dep = Department.objects.filter(id=doct[0].departmentId.id)
-		_hos = Hospital.objects.filter(id=dep[0].hospitalId.id)
-
-		hos = _hos[0].name
-		#office Chinese
-		office = dep[0].name
-		#doctor Chinese
-		doc = doct[0].name
-		#price
-		price = doct[0].fee
-		#status
-		#pay
-		status = o.isPayed
-		#cancel
-		status_flag = o.isCanceled
-		print time,hos,office,doc,price
 	return render(request, 'appointinfo.html', {'user': us, 'appointinfo': orderinfo})
 
-# 测试用
-# done
-def userInfoSim(request):
-	#...
-	s_userid = request.user.id #May be wrong
-	own_user = us = User.objects.filter(id=s_userid)
-	sex = own_user[0].sex
-	username = own_user[0].username
-	return HttpResponse("UserInfoSim sth.")
-
-# 预约信息
-def orderInfo(request):
-	#debug 1
-	usrid=1
-	visitid=1 #Debug 1 request.POST.get('visitid')
-	o_time=time.strftime( ISOTIMEFORMAT, time.localtime(time.time()) )
-	print o_time
-	#find_user
-	#loc_user = User.objects.filter(id=usrid)
-	#loc_visit = VisitMessage.objects.filter(id=visitid)
-	#ins_info = OrderMessage(userId=loc_user[0].id, visitId=loc_visit[0].id)
-	#SQL
-	#ins_info = OrderMessage(userId=loc_user, visitId=loc_visit)
-	#ins_info.save()
-	cursor = connection.cursor()
-	cursor.execute("INSERT INTO OrderAndVisit_ordermessage(userId_id, visitId_id,ordertime) values (%s,%s,%s)",[usrid,visitid,o_time])
-	cursor.close()
-	return HttpResponse("233")
-
-# 取消
-def cancelInfo(request):
-	o_time=time.strftime( ISOTIMEFORMAT, time.localtime(time.time()) )
-	#visitid=request.POST.visitid
-	visitid=1 #debug
-	#Check of time to be continued......
-	#if order can be canceled
-	OrderMessage.objects.filter(id=visitid).update(isCanceled=True)
-	ToBeCanceledOrder = OrderMessage.objects.filter(id=visitid)
-	#SQL
-	cursor = connection.cursor()
-	cursor.execute("INSERT INTO OrderAndVisit_ordercancelmessage(orderId_id,cancelTime) values (%s,%s)",[visitid,o_time])
-	cursor.close()
-	#Cope with payment
-	return HttpResponse("23333")
-
-# 支付
-def payInfo(request):
-	#visitid=request.POST.visitid
-	visitid=1 #debug
-	OrderMessage.objects.filter(id=visitid).update(isPayed=True)
-	return HttpResponse("Done")
-
+# 用户登录，处理函数，跳转主页
 def login(request):
 	errors = []
 	if 'name' in request.GET and request.GET['name']:
@@ -336,6 +308,7 @@ def login(request):
 	if (errors):
 		return HttpResponseRedirect('/index/?errorMessage=errors')
 
+#　用户注销，处理函数，跳转主页
 def logout(request):
 	try:
 		del request.session['member_id']
@@ -343,6 +316,7 @@ def logout(request):
 		pass
 	return HttpResponse("You're logged out")
 
+# 用户注册，处理函数，跳转主页
 def register(request):
 	errors = []
 	if request.method == 'POST':
@@ -373,6 +347,7 @@ def register(request):
 	# return where? i think it should be discussed
 	return HttpResponseRedirect('/index/?errorMessage=errors')
 
+# 医院列表，单独页面
 def hospitalSearch(request,hospitalname):
     hospitals = Hospital.objects.filter(name__contains=hospitalname)
     # data = serializers.serialize("json", hospitals)
@@ -397,6 +372,7 @@ def hospitalSearch(request,hospitalname):
 
     return HttpResponse("%s" % output)
 
+# 医生列表，单独页面
 def doctorSearch(request,doctorname):
     doctors = Doctor.objects.filter(name__contains=doctorname).prefetch_related()
     # data = serializers.serialize("json", doctors)
@@ -411,6 +387,7 @@ def doctorSearch(request,doctorname):
     print output
     return HttpResponse("%s" % output)
 
+#　用户信息，单独页面
 def myinfo(request):
 	if (not request.session['member_id']):
 		user_id = request.session['member_id']
@@ -419,6 +396,6 @@ def myinfo(request):
 			'name': res.name,
 			'sex': res.sex,
 			'idCard': res.idCard,
-			'telephone', res.telephone,
+			'telephone': res.telephone,
 		}
 		return render_to_response ('myinfo.html', ret)
