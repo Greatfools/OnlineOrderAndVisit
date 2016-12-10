@@ -421,3 +421,15 @@ def doctorSearch(request,doctorname):
     output += "find " +'%d' % doctornum + " doctors<br>\n"
     print output
     return HttpResponse("%s" % output)
+
+def myinfo(request):
+	if (not request.session['member_id']):
+		user_id = request.session['member_id']
+		res = User.objects.filter(id = user_id)
+		ret = {
+			'name': res.name,
+			'sex': res.sex,
+			'idCard': res.idCard,
+			'telephone', res.telephone,
+		}
+		return render_to_response ('myinfo.html', ret)
