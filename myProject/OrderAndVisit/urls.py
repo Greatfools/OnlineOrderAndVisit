@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^hospital/$',views.hospital,name='hospital'),
 	# 显示医生信息
 	url(r'^doctor$',views.doctor,name='doctor'),
+
+	url(r'^myinfo$', views.myinfo, name='myinfo'),
 	# 显示预约信息
 	url(r'^appointinfo/', views.appointInfo, name='appointinfo'),
 	
