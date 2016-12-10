@@ -24,15 +24,6 @@ urlpatterns = [
 	# 显示医院信息
     url(r'^hospital/$',views.hospital,name='hospital'),
 	# 显示医生信息
-<<<<<<< HEAD
-	url(r'^doctor$',views.doctor,name='doctor'),
-
-	url(r'^myinfo$', views.myinfo, name='myinfo'),
-	# 显示预约信息
-=======
-	url(r'^doctor/$',views.doctor,name='doctor'),
-	# 显示用户的预约信息
->>>>>>> 62febce9edb3b7a90a03f225f8a9ca744a925826
 	url(r'^appointinfo/', views.appointInfo, name='appointinfo'),
 	# 进行预约的处理函数，跳转到？
     url(r'^orderinfo/\((.+)L,\)/$', views.orderInfo, name='orderinfo'),
