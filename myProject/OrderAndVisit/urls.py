@@ -1,3 +1,4 @@
+#coding: utf-8
 from django.conf.urls import include, url
 from django.contrib import admin
 
@@ -17,18 +18,18 @@ urlpatterns = [
 	
 	url(r'^doctorSearch/(?P<doctorname>\w+)/$', views.doctorSearch, name='doctorSearch'),
 	# 显示科室信息
-	url(r'^officeinfo/$',views.officeinfo, name = 'officeinfo'),
+	url(r'^officeinfo/o1([0-9]+)d2(.*)/$',views.officeinfo, name = 'officeinfo'),
 	# 显示医院信息
     url(r'^hospital/$',views.hospital,name='hospital'),
 	# 显示医生信息
-	url(r'^doctor$',views.doctor,name='doctor'),
+	url(r'^doctor/$',views.doctor,name='doctor'),
 	# 显示预约信息
 	url(r'^appointinfo/', views.appointInfo, name='appointinfo'),
 	
 	# 进行预约，完成后跳转到？
 	url(r'^orderInfo/', views.orderInfo, name = 'orderInfo'),
 	# 取消预约，完成后跳转到？
-	url(r'^cancelInfo/', vies.cancelInfo, name = 'cancelInfo');
+	url(r'^cancelInfo/', views.cancelInfo, name = 'cancelInfo'),
 	# 进行支付， 完成后跳转到？
 	url(r'^payInfo/', views.payInfo, name = 'payInfo'),
 	

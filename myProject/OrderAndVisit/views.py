@@ -29,12 +29,16 @@ def search(request):
 
 # 测试搜索用
 def header(request):
-	return render_to_response('head - 副本.html')# 样本，需要改变
+	return render_to_response('header.html')# 样本，需要改变
 
 # 显示科室信息
-def officeinfo(request):
+def officeinfo(request,officeid,dateid):
 	Week = ["日","一","二","三","四","五","六"]
-	d = Department.objects.get(id = 1)
+	daytime = ["m","a","e"]
+	o_id = officeid
+	d_id = dateid
+	o_id = 1
+	d = Department.objects.get(id = o_id)
 	h = Hospital.objects.get(id = d.hospitalId_id)
 	s = datetime.datetime.today()
 	w = datetime.datetime.now().weekday() + 1
@@ -47,9 +51,9 @@ def officeinfo(request):
 		visitdate.append((s + datetime.timedelta(days=num)).strftime("%Y-%m-%d"))
 		dateweek.append(Week[(w+num)%7])
 		num = num+1
-	alldoctor = Doctor.objects.filter(departmentId_id = 1)
+	# alldoctor = Doctor.objects.filter(departmentId_id = 1)
 
-	record = [[False for x in range(3)] for y in range(7)]
+	record = [[False for x in range(7)] for y in range(3)]
 	for i in range(7):
 		for j in range(3):
 			if j == 0:
@@ -70,11 +74,17 @@ def officeinfo(request):
 
 			row = cursor.fetchone()
 			if row[0] > 0:
-				record[i][j] = True
+				record[j][i] = visitdate[i] + daytime[j]
 			else:
-				record[i][j] = False
-	visitList = VisitMessage.objects.filter(visitDate = "2016-11-27", visitTime = "m", doctorId__departmentId_id__exact = 1)
-	return render_to_response ('doctorinfo.html',{'dateprint':dateprint, 'dateweek':dateweek})
+				record[j][i] = ""
+	if d_id:
+		visitList = VisitMessage.objects.filter(visitDate=d_id[0:-1], visitTime=d_id[-1],
+												doctorId__departmentId_id__exact=1, restNumber__gt = 0)
+		#doctorList = visitList.doctorId
+	return render_to_response ('officeinfo.html',{"dateprint":dateprint,"dateweek":dateweek,
+												  "morning":record[0], "afternoon":record[1],
+												  "evening":record[2],"h":h, "d_id":d_id, "o_id":o_id,
+												  "visitList":visitList})
 
 #不知道谁写的hospital，先注释了（这里好多个hospital啊）
 # def hospital(request):
