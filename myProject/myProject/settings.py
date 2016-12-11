@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/home/greatbeast/Documents/my.cnf',
+            'read_default_file': '/home/my.cnf',
         },
     }
 }
