@@ -5,7 +5,7 @@ $(function () {
     $('.header').load('header.html');
 })
 $(function () {
-    $('.footer').load('footer.html')
+    $('.footer').load('footer.html');
 })
 $('#navi-doctor').click(function () {
     $('#promoted-box1').addClass('hidden');

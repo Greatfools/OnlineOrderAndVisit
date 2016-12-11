@@ -35,7 +35,9 @@ urlpatterns = [
 	# 进行支付， 完成后跳转到？
 	#url(r'^payInfo/', views.payInfo, name = 'payInfo'),
     url(r'^appointinfo/cpid2(.+)366',views.payInfo, name='payinfo'),
-    # 测试搜索用
-	url(r'^header/$', views.header, name = 'header'),
+    # 头部
+	url(r'^header.html$', views.header, name = 'header'),
+    #　尾部
+    url(r'^footer.html$', views.footer, name ='footer'),
 ]
 

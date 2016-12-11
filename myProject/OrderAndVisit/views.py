@@ -23,7 +23,7 @@ sys.setdefaultencoding('utf-8')
 # Create your views here.
 # 主页
 def index(request):
-	return HttpResponse('hello world')
+	return render_to_response('index.html')
 
 # 搜索
 def search(request):
@@ -34,6 +34,9 @@ def search(request):
 # 测试搜索用
 def header(request):
 	return render_to_response('header.html')# 样本，需要改变
+
+def footer(request):
+	return render_to_response('footer.html')
 
 # 显示科室信息
 def officeinfo(request,officeid,dateid):
@@ -350,42 +353,40 @@ def register(request):
 # 医院列表，单独页面
 def hospitalSearch(request,hospitalname):
     hospitals = Hospital.objects.filter(name__contains=hospitalname)
-    # data = serializers.serialize("json", hospitals)
-    # print data
-
-    output = ""
-    hospitalnum = 0
-    for h in hospitals:
-        hospitalnum += 1
-        doctors = Doctor.objects.filter(departmentId__id=h.id)
-        doctornum = 0
-        for doctor in doctors:
-            doctornum += 1
-
-        orders = OrderMessage.objects.filter(visitId__doctorId__departmentId__id=h.id)
-        ordernum = 0
+    hosnum=0
+    docnum=[]
+    ordernum=[]
+    for hospital in hospitals:
+        doctors = Doctor.objects.filter(departmentId__id=hospital.id)
+        orders = OrderMessage.objects.filter(visitId__doctorId__departmentId__id=hospital.id)
+        hosnum+=1
+        tempdocnum=0
+        tempordernum=0
         for order in orders:
-            ordernum += 1
-        output += "{},{},{},{},{},{}<br>\n".format(h.name,h.img,h.introduction,doctornum,ordernum,h.address)
-    output += "find "+ '%d' % hospitalnum +" hospitals<br>\n"
-    print output
+            tempordernum +=1
+        for doctor  in doctors:
+            tempdocnum+=1
+        docnum.append(tempdocnum)
+        ordernum.append(tempordernum)
 
-    return HttpResponse("%s" % output)
+
+    fp = open('./templates/search_hospital.html')
+    t = Template(fp.read())
+    fp.close()
+    hosinfo=zip(hospitals,docnum,ordernum)
+    html = t.render(Context(
+        {'hosinfo': hosinfo}))
+    return  HttpResponse(html)
 
 # 医生列表，单独页面
 def doctorSearch(request,doctorname):
-    doctors = Doctor.objects.filter(name__contains=doctorname).prefetch_related()
-    # data = serializers.serialize("json", doctors)
-    # print data
-
-    output = ""
-    doctornum = 0
-    for doctor in doctors:
-        doctornum += 1
-        output += "{},{},{},{},{}<br>\n".format(doctor.name,doctor.title,doctor.departmentId.hospitalId.name,doctor.departmentId.name,doctor.introduction)
-    output += "find " +'%d' % doctornum + " doctors<br>\n"
-    print output
-    return HttpResponse("%s" % output)
+	doctors = Doctor.objects.filter(name__contains=doctorname).prefetch_related()
+	fp = open('./templates/search_doctor.html')
+	t = Template(fp.read())
+	fp.close()
+	html = t.render(Context(
+		{'doctors': doctors}))
+	return HttpResponse(html)
 
 #　用户信息，单独页面
 def myinfo(request):
@@ -399,3 +400,7 @@ def myinfo(request):
 			'telephone': res.telephone,
 		}
 		return render_to_response ('myinfo.html', ret)
+
+
+
+
