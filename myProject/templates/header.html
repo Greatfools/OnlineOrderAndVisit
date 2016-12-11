@@ -34,7 +34,7 @@
         </div>
         <!-------->
         <div class="logo">
-        <a class='logo' href="index.html">
+        <a class='logo' href="/OrderAndVisit/">
             <img class="logo" src="/static/img/logo.png">
         </a>
         </div>
@@ -42,7 +42,7 @@
 
 
         <div class="keyword"></div>
-        <form id="searchForm" method="get" action="#">
+        <form id="searchForm" method="get" action="/OrderAndVisit/search/">
             <div class="search-option">
                 <span class="intext">医&nbsp;院</span>
                 <span>∨</span>
@@ -50,13 +50,18 @@
 
             <div class="search-selection" style="display: none;">
                 <ul>
-                    <li>医&nbsp;院</li>
-                    <li>科&nbsp;室</li>
-                    <li>医&nbsp;生</li>
+                    <!--<select name="choice">-->
+                    <!--<option value="h"><li>医&nbsp;院</li></option>-->
+                    <!--<option value="o"><li>科&nbsp;室</li></option>-->
+                    <!--<option value="d"><li>医&nbsp;生</li></option>-->
+                    <!--</select>-->
+                    <li>医　院</li>
+                    <li>科　室</li>
+                    <li>医　生</li>
                 </ul>
             </div>
             <input id="searchInput" placeholder="请输入医院/科室/医生" type="text" name="key">
-            <button id="searchButton" type="button" >搜&nbsp;索</button>
+            <input id="searchButton" type="submit" >搜&nbsp;索</input>
         </form>
         <div class="login">
             <div class="loginButton">
@@ -69,7 +74,6 @@
     </div>
 </div>
 <!---->
-
 <!--导航栏-->
 <div class="banner">
     <div class="banner-content">

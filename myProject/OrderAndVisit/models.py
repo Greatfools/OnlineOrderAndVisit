@@ -56,7 +56,7 @@ class Admin(models.Model):
 
 class VisitMessage(models.Model):
     doctorId = models.ForeignKey(Doctor)
-    visitDate = models.DateField()
+    visitDate = models.CharField(max_length=20)
     visitTime = models.CharField(max_length = 16)#早上/中午/晚上
     maxNumber = models.IntegerField(default = 0)
     restNumber = models.IntegerField(default = 0)#剩余可预约人数

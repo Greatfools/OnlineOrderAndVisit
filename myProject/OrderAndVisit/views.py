@@ -20,6 +20,8 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+ISOTIMEFORMAT="%Y-%m-%d %X"
+
 # Create your views here.
 # 主页
 def index(request):
@@ -27,9 +29,19 @@ def index(request):
 
 # 搜索
 def search(request):
-	if 'key' in request.GET:
-		key = request.GET['key'] # q is an object submitted by front
-		return HttpResponseRedirect('/OrderAndVisit/officeinfo/')# 样本，需要改变
+    if 'key' in request.GET and 'choice' in request.GET and request.GET['choice'] and request.GET['key']:
+        choice = request.GET['choice']
+        key = request.GET['key']  # q is an object submitted by front
+        if choice == 'h':
+            return HttpResponseRedirect('/OrderAndVisit/hosiptalSearch/' + key +'/')
+        elif choice == 'o':
+            return HttpResponseRedirect('#')
+        elif choice == 'd':
+            return HttpResponseRedirect('/OrderAndVisit/doctorSearch/' + key +'/')
+        else:
+            return HttpResponseRedirect('/OrderAndVisit/')
+    else:
+        return HttpResponseRedirect('/OrderAndVisit/')
 
 # 测试搜索用
 def header(request):
@@ -60,7 +72,7 @@ def officeinfo(request,officeid,dateid):
 		num = num+1
 	# alldoctor = Doctor.objects.filter(departmentId_id = 1)
 
-	record = [[False for x in range(7)] for y in range(3)]
+	record = [["" for x in range(7)] for y in range(3)]
 	for i in range(7):
 		for j in range(3):
 			if j == 0:
@@ -91,11 +103,11 @@ def officeinfo(request,officeid,dateid):
 		visitList = []
 	return render_to_response ('officeinfo.html',{"dateprint":dateprint,"dateweek":dateweek,
 												  "morning":record[0], "afternoon":record[1],
-												  "evening":record[2],"h":h, "d_id":d_id, "o_id":o_id,
+												  "evening":record[2],"h":h, "d":d, "d_id":d_id, "o_id":o_id,
 												  "visitList":visitList})
 
 # 显示医生信息，单独页面
-def doctor(request):
+def doctor(request,did):
 	Week = ["日", "一", "二", "三", "四", "五", "六"]
 	s = datetime.datetime.today()
 	w = datetime.datetime.now().weekday() + 1
@@ -123,10 +135,10 @@ def doctor(request):
 					SELECT id FROM OrderAndVisit_visitmessage
 					WHERE doctorId_id in (
 					SELECT id FROM OrderAndVisit_doctor
-					WHERE departmentId_id = 1) AND
+					WHERE departmentId_id = '%s') AND
 					visitDate = '%s' AND
 					visitTime = '%s' AND
-					restNumber > 0""" % (visitdate[i], time))
+					restNumber > 0""" % (did,visitdate[i], time))
 
 			row = cursor.fetchone()
 			if row > 0:
@@ -135,8 +147,10 @@ def doctor(request):
 				visitId[j][i] = False
 
 			#
-
-	doc = Doctor.objects.get(id='1')
+	m=[]
+	for i in visitId[0]:
+		m.append(i)
+	doc = Doctor.objects.get(id=did)
 	dep=Department.objects.get(id=doc.departmentId_id)
 	hos=Hospital.objects.get(id=dep.hospitalId.id)
 
@@ -153,8 +167,8 @@ def doctor(request):
 	return HttpResponse(html)
 
 #　显示医院信息，单独页面
-def hospital(request):
-	hos = Hospital.objects.get(id='1')
+def hospital(request,hid):
+	hos = Hospital.objects.get(id=hid)
 	dep = Department.objects.filter(hospitalId=hos.id).order_by("classinfo")
 	cursor = connection.cursor()
 	cursor.execute("""

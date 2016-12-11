@@ -54,8 +54,8 @@
                     <td>上午</td>
                     {% for morn in morning %}
                         {% if morn %}
-                           {% url 'orderinfo' morn as ourl %}
-                           <td class="appntBlue"><a href="./orderinfo/{{ morn }}">点击预约id={{ morn }}</a></td>
+                           {% url 'orderinfo' morn.0 as ourl %}
+                           <td class="appntBlue"><a href="{{ourl}}">点击预约</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -66,8 +66,8 @@
                     <td>下午</td>
                     {% for after in afternoon %}
                         {% if after %}
-                           {% url 'orderinfo' after as ourl %}
-                           <td class="appntBlue"><a href="./orderinfo/{{ after }}">点击预约id={{after}}</a></td>
+                           {% url 'orderinfo' after.0 as ourl %}
+                           <td class="appntBlue"><a href="{{ourl}}">点击预约</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -78,8 +78,8 @@
                     <td>晚上</td>
                     {% for even in evening %}
                         {% if even %}
-                           {% url 'orderinfo' even as ourl %}
-                           <td class="appntBlue"><a href="./orderinfo/{{ even }}">点击预约id={{ even }}</a></td>
+                           {% url 'orderinfo' even.0 as ourl %}
+                           <td class="appntBlue"><a href="{{ourl}}">点击预约</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}

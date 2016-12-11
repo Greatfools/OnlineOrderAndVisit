@@ -14,7 +14,7 @@ urlpatterns = [
     # 个人信息查看页面
 	url(r'myInfo/', views.myinfo, name = 'myInfo'),
 	# header中搜索函数
-	url(r'^search/$', views.search),
+	url(r'^search/', views.search),
     #　以医院，科室为关键字的搜索列表
 	url(r'^hospitalSearch/(?P<hospitalname>\w+)/$', views.hospitalSearch, name='hospitalSearch'),
 	# 以医生为关键字的搜索列表
@@ -22,8 +22,10 @@ urlpatterns = [
 	# 显示科室信息
 	url(r'^officeinfo/o1([0-9]+)d2(.*)/$',views.officeinfo, name = 'officeinfo'),
 	# 显示医院信息
-    url(r'^hospital/$',views.hospital,name='hospital'),
+	url(r'^hospital/(\d+)/$', views.hospital, name='hospital'),
 	# 显示医生信息
+	url(r'^doctor/(\d+)/$', views.doctor, name='doctor'),
+	# 显示用户预约信息
 	url(r'^appointinfo/', views.appointInfo, name='appointinfo'),
 	# 进行预约的处理函数，跳转到？
     url(r'^orderinfo/\((.+)L,\)/$', views.orderInfo, name='orderinfo'),
