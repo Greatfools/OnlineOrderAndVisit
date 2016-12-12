@@ -1,5 +1,8 @@
 my.cnf
 *.pyc
 .idea/*
-*/*.pyc
-*/*/*.pyc
+
+myProject/myProject/__init__.pyc
+
+myProject/myProject/settings.pyc
+
