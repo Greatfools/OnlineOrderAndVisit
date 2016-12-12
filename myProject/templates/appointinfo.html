@@ -5,14 +5,15 @@
     <title>预约挂号系统</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
 
     <!--<link rel="stylesheet" href="../static/css/header.css">-->
 
-    <link rel="stylesheet" href="/static/css/appointinfo.css">
+    <link rel="stylesheet" href="../static/css/appointinfo.css">
 </head>
 
 <body>
+<div class="header"></div>
 <!--appointinfo-->
 <div class="content" id="appointinfo">
     <div class="row">
@@ -52,9 +53,15 @@
                         未付款
                       {% endif %}
                     </td>
+                    {% if appoint.isCanceled == False %}
                     <td>
-                      <a href="http://kevinfeng.moe/pay.html">支付</a> <a>取消</a> <a>打印预约单</a> <a>打印挂号单</a>
+                      {% url 'cancelinfo' appoint.id as curl %}
+                      {% url 'payinfo' appoint.id as purl %}
+                      {% if appoint.isPayed == False %}<a href="{{ purl }}">支付</a>{% endif %} <a href="{{ curl }}">取消</a> <a>打印预约单</a> <a>打印挂号单</a>
                     </td>
+                    {% else %}
+                    <td>已取消预约不可操作   　　　　　</td>
+                    {% endif %}
                   </tr>
                 {% endfor %}
                 </tbody>
@@ -63,8 +70,10 @@
     </div>
 
 </div>
+<div class="footer"></div>
 </body>
-<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
-<script src="/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
+<script src="../static/js/bootstrap.js"></script>
 <!--<script src="../static/js/header.js"></script>-->
+<script src="../static/js/addheader.js"></script>
 </html>

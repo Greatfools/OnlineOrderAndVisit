@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../static/css/hosinfo.css">
 </head>
 <body onload="load()">
-<!--<div class="header"></div>-->
+<div class="header"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-1 col-md-offset-1" id="smallLink">
@@ -27,7 +27,7 @@
             <span id="hosName">{{name}}</span><br>
             <span class="hosInfoGrey">医院电话: </span><span id="hosTel">{{phonenum}}</span><br>
             <span class="hosInfoGrey">医院地址: </span><span id="hosAddr">{{address}}</span><br>
-            <span class="hosInfoGrey">有优质医生</span><span class="hosInfoOrng">{{docnum}}</span><span class="hosInfoGrey">人   完成服务</span><span class="hosInfoOrng">xxxx</span><span class="hosInfoGrey">次</span>
+            <span class="hosInfoGrey">有优质医生</span><span class="hosInfoOrng">{{docnum}}</span><span class="hosInfoGrey">人   完成服务</span><span class="hosInfoOrng">{{peoplen}}</span><span class="hosInfoGrey">次</span>
         </div>
     </div>
     <div class="row">
@@ -61,12 +61,10 @@
         </div>
     </div>
 </div>
-<!--<div class="footer"></div>-->
+<div class="footer"></div>
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
 <script src="../static/js/bootstrap.js"></script>
 <script src="../static/js/hosinfo.js"></script>
-<!--
 <script src="../static/js/addheader.js"></script>
--->
 </html>

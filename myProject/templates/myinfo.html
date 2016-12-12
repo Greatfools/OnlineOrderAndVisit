@@ -12,11 +12,12 @@
 </head>
 <body onload="onload()">
 <!--myinfo-->
+<div class="header"></div>
 <div class="content" id="myinfo">
     <div class="row">
         <aside class="usrinfo col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
             <img id="usricon" src="../static/img/appointinfo/usricon.png"/>
-            <div id="welcomelabel">欢迎您！冯凯文</div>
+            <div id="welcomelabel">欢迎您!{{ name }}</div>
             <a class="usrinfolink" id="usrinfoindex" href="index.html">●&nbsp首&nbsp页</a>  <a class="usrinfolink" id="usrinfoquit">●&nbsp退&nbsp出</a>
             <div class="usrunselected">预约信息</div>
             <div class="usrselected">个人信息</div>
@@ -28,19 +29,19 @@
             </div>
             <div id="myInfoCntntDiv">
                 <div class="row myInfoCntntRow" id="nameRow">
-                    <span class="myInfoGrey col-md-2 col-lg-2"> 姓&nbsp&nbsp&nbsp&nbsp名:</span><span class="col-lg-3 col-md-3 infoText">于济凡</span>
+                    <span class="myInfoGrey col-md-2 col-lg-2"> 姓&nbsp&nbsp&nbsp&nbsp名:</span><span class="col-lg-3 col-md-3 infoText">{{ name }}</span>
                 </div>
                 <div class="row myInfoCntntRow" id="genderRow">
-                    <span class="myInfoGrey col-md-2 col-lg-2"> 性&nbsp&nbsp&nbsp&nbsp别:</span><span class="col-lg-3 col-md-3 infoText">男</span>
+                    <span class="myInfoGrey col-md-2 col-lg-2"> 性&nbsp&nbsp&nbsp&nbsp别:</span><span class="col-lg-3 col-md-3 infoText">{{ sex }}</span>
                 </div>
                 <div class="row myInfoCntntRow" id="IDCRow">
-                    <span class="myInfoGrey col-md-2 col-lg-2"> 证&nbsp&nbsp&nbsp&nbsp件:</span><span class="col-lg-3 col-md-3 infoText">+86xxx199613322333</span>
+                    <span class="myInfoGrey col-md-2 col-lg-2"> 证&nbsp&nbsp&nbsp&nbsp件:</span><span class="col-lg-3 col-md-3 infoText">{{ idNum }}</span>
                 </div>
                 <div class="row myInfoCntntRow" id="AddrRow">
                     <span class="myInfoGrey col-md-2 col-lg-2"> 居住地:</span><span class="col-lg-3 col-md-3 infoText">北京市海淀区学院路37号</span>
                 </div>
                 <div class="row myInfoCntntRow" id="PhoneRow">
-                    <span class="myInfoGrey col-md-2 col-lg-2"> 手&nbsp&nbsp&nbsp&nbsp机:</span><span class="col-lg-3 col-md-3 infoText">13204210266</span>
+                    <span class="myInfoGrey col-md-2 col-lg-2"> 手&nbsp&nbsp&nbsp&nbsp机:</span><span class="col-lg-3 col-md-3 infoText">{{ telephone }}</span>
                 </div>
                 <div class="row myInfoCntntRow" id="CheckRow">
                     <span class="myInfoGrey col-md-2 col-lg-2"> 登&nbsp&nbsp&nbsp&nbsp记:</span><span class="col-lg-3 col-md-3 infoText">有效</span>
@@ -63,6 +64,10 @@
         </article>
     </div>
 </div>
+<div class="footer"></div>
 </body>
+<script src="../static/js/jquery-3.0.0.js"></script>
+<script src="../static/js/bootstrap.js"></script>
 <script src="../static/js/myinfo.js"></script>
+<script src="../static/js/addheader.js"></script>
 </html>

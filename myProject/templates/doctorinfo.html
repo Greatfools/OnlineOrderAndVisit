@@ -38,13 +38,16 @@
                     {% endfor %}
                 </tr>
                 <tr class="appntTimeGrey">
-                    <th>今天</th>
-                    <th>明天</th>
-                    <th>后天</th>
-                    <th>大后天</th>
-                    <th>大大后天</th>
-                    <th>大大大后天</th>
-                    <th>大大大大后天</th>
+                    <!--<th>今天</th>-->
+                    <!--<th>明天</th>-->
+                    <!--<th>后天</th>-->
+                    <!--<th>大后天</th>-->
+                    <!--<th>大大后天</th>-->
+                    <!--<th>大大大后天</th>-->
+                    <!--<th>大大大大后天</th>-->
+                    {% for w in week %}
+                        <th>星期{{w}}</th>
+                    {% endfor %}
                 </tr>
                 </thead>
                 <tbody>
@@ -52,7 +55,8 @@
                     <td>上午</td>
                     {% for morn in morning %}
                         {% if morn %}
-                           <td class="appntBlue"><a href="#">点击预约id={{morn}}</a></td>
+                           {% url 'orderinfo' morn.0 as ourl %}
+                           <td class="appntBlue"><a href="{{ourl}}">点击预约</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -63,7 +67,8 @@
                     <td>下午</td>
                     {% for after in afternoon %}
                         {% if after %}
-                           <td class="appntBlue"><a href="#">点击预约id={{after}}</a></td>
+                           {% url 'orderinfo' after.0 as ourl %}
+                           <td class="appntBlue"><a href="{{ourl}}">点击预约</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -74,7 +79,8 @@
                     <td>晚上</td>
                     {% for even in evening %}
                         {% if even %}
-                           <td class="appntBlue"><a href="#">点击预约id=={{even}}</a></td>
+                           {% url 'orderinfo' even.0 as ourl %}
+                           <td class="appntBlue"><a href="{{ourl}}">点击预约</a></td>
                         {% else %}
                            <td></td>
                         {% endif %}
@@ -95,5 +101,5 @@
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
 <script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/doctorinfo.js"></script>
+<script src="../static/js/addheader.js"></script>
 </html>

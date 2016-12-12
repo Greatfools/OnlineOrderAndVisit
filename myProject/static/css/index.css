@@ -24,16 +24,51 @@ body {
     height: 326px;
     position: absolute;
     top: 116px;
-    background-color: #2BA5ED;
+    background-color:#7bd0cd;
+        /*#0f1a38;背景图片1*/
+    /*#2BA5ED原背景，纯色;*/
+    /*#7bd0cd(背景图片2)*/
+    /*#659ebc（背景图片3）*/
+
+
+    /*background: url("../img/主页背景图1.png");*/
     margin: 0px auto;
 }
 
 /*添加了一个容器。。把快速预约框定义在了pic-box中间 by zhangrui*/
 .content-box{
     width: 1020px;
-    margin: 30px auto;
-    height: 266px;
+    /*margin: 30px auto;
+    height: 266px;*/
+    margin: 0px auto;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    height: 326px;
+
     position: relative;
+    background-image: url("../img/主页背景图2修正.png");
+    /*background: url("../img/主页背景图1修正.png");*/
+}
+.ct-box-bottom{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 400px;
+    bottom: 30px;
+    /*padding-right: 30px;*/
+    margin-right: 50px;
+}
+.ct-box-bottom-blk{
+    float: right;
+    width: 60px;
+    height: 12px;
+    background-color: #555555;
+    opacity: 0.6;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+.ct-box-bottom-blk :hover{
+    background-color: #dddddd;
 }
 .fastapt-box{
     height: 100%;
@@ -42,7 +77,10 @@ body {
     background-color: #ebebeb;
     border-radius: 5px;
     position: relative;
+    /*top: 30px;*/
+    opacity: 0.85;
 }
+
 .fastapt-box .title{
     font-size: 16px;
     width: 100%;
@@ -129,7 +167,7 @@ body {
     right: 0px;
     float: left;
 }
-#promoted-box1{
+.promoted-box1{
     height: 445px;
     width: 230px;
     margin: 0px;
@@ -137,7 +175,7 @@ body {
     left: 0px;
     padding: 20px 0px;
 }
-#promoted-box2{
+.promoted-box2{
     height: 445px;
     width: 230px;
     margin: 0px;
@@ -145,7 +183,7 @@ body {
     left: 255px;
     padding: 20px 0px;
 }
-#promoted-box3{
+.promoted-box3{
     height: 445px;
     width: 230px;
     margin: 0px;
@@ -179,6 +217,9 @@ body {
     float: right;
 }
 .pib-inner{
+    margin-top: 20px;
+}
+.p-box-46{
     margin-top: 20px;
 }
 .news{
