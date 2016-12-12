@@ -46,3 +46,16 @@
 .hosClassTitle:hover{
     background-color: #fff;
 }
+.container-fluid{
+    width:1020px;
+    height:1000px;
+    position: relative;
+    top:120px;
+    margin:0 auto;
+}
+.footer{
+    height:100px;
+    width:100%;
+    position: absolute;
+    top:1200px;
+}

@@ -1,12 +1,7 @@
 /**
  * Created by 朱耀华 on 2016/11/28.
  */
-$(function () {
-    $('.header').load('header.html');
-})
-$(function () {
-    $('.footer').load('footer.html');
-})
+
 $('#navi-doctor').click(function () {
     $('#promoted-box1').addClass('hidden');
     $('#promoted-box2').addClass('hidden');
