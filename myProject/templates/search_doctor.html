@@ -5,8 +5,8 @@
     <title>医院查询</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/search_doctor.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/search_doctor.css">
 </head>
 <body>
 <!--<div class="header"></div>-->
@@ -115,16 +115,16 @@
 
         {% for doc in doctors %}
             <div class="hc-pic-box">
-            <img src="../static/img/new_search_doctor_03.png">
+            <img src="/static/img/new_search_doctor_03.png">
             <div class="hc-text">
-                <p class="hs-name">{{doc.name}}</p>
+                <p class="hs-name"><a href="/OrderAndVisit/doctor/{{doc.id}}/">{{doc.name}}</a></p>
                 <p class="hc-level">{{doc.title}}</p>
                 <p class="hs-info">{{doc.departmentId.hospitalId.name}}</p>
                 <p class="hc-info-detail">{{doc.departmentId.name}}</p>
                 <p class="hs-goodat">擅长诊治</p>
                 <p class="hc-goodat-detail">{{doc.introduction}}</p>
             </div>
-            <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
+            <p><a href="/OrderAndVisit/doctor/{{doc.id}}/" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
         </div>
         {% endfor %}
 
@@ -149,7 +149,7 @@
 
 
 </body>
-<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/search_hospital.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/search_hospital.js"></script>
 </html>

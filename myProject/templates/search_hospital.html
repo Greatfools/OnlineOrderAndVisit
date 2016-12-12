@@ -5,8 +5,8 @@
     <title>医院查询</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/search_hospital.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/search_hospital.css">
 </head>
 <body>
     <div class="header"></div>
@@ -124,13 +124,13 @@
             <!--</div>-->
             {% for hos in hosinfo %}
             <div class="hc-pic-box">
-                <img src="../static/img/new_search_doctor_03.png">
+                <img src="/static/img/new_search_doctor_03.png">
                 <div class="hc-text">
-                    <p class="hs-name">{{hos.0.name}}</p>
+                    <p class="hs-name"><a href="/OrderAndVisit/hospital/{{hos.0.id}}/">{{hos.0.name}}</a></p>
                     <p class="hs-info">有优质医生{{hos.1}}人 | 完成服务{{hos.2}}次</p>
                     <p class="hs-info">医院地址： {{hos.0.address}}</p>
                 </div>
-                <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
+                <p><a href="/OrderAndVisit/hospital/{{hos.0.id}}/" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
             </div>
             {% endfor %}
 
@@ -190,8 +190,8 @@
 
 <div class="footer"></div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/search_hospital.js"></script>
-<script src="../static/js/addheader.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/search_hospital.js"></script>
+<script src="/static/js/addheader.js"></script>
 </html>

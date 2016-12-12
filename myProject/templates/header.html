@@ -28,7 +28,7 @@
                 </dl>
                 <div class="submit">
                     <input id="submitLogin" type="submit" value="登录">
-                    <a href="#" id="registerButton">注册</a>
+                    <a href="/OrderAndVisit/registerpage/" id="registerButton">注册</a>
                 </div>
             </div>
         </div>
@@ -50,14 +50,14 @@
 
             <div class="search-selection" style="display: none;">
                 <ul>
-                    <!--<select name="choice">-->
-                    <!--<option value="h"><li>医&nbsp;院</li></option>-->
-                    <!--<option value="o"><li>科&nbsp;室</li></option>-->
-                    <!--<option value="d"><li>医&nbsp;生</li></option>-->
-                    <!--</select>-->
-                    <li>医　院</li>
-                    <li>科　室</li>
-                    <li>医　生</li>
+                    <select name="choice">
+                    <option value="h"><li>医&nbsp;院</li></option>
+                    <option value="o"><li>科&nbsp;室</li></option>
+                    <option value="d"><li>医&nbsp;生</li></option>
+                    </select>
+                    <!--<li>医　院</li>-->
+                    <!--<li>科　室</li>-->
+                    <!--<li>医　生</li>-->
                 </ul>
             </div>
             <input id="searchInput" placeholder="请输入医院/科室/医生" type="text" name="key">
@@ -68,7 +68,7 @@
                 <button href="#">登&nbsp;录</button>
             </div>
             <div class="registerButton">
-                <a href="#">注&nbsp;册</a>
+                <a href="/OrderAndVisit/registerpage/">注&nbsp;册</a>
             </div>
         </div>
     </div>
@@ -81,15 +81,15 @@
             <a href="#">首页</a>
         </div>
         <div class="hospitalSearch unselected">
-            <a href="#">按医院挂号</a>
+            <a href="/OrderAndVisit/hospitalSearch/,1,1">按医院挂号</a>
         </div>
 
         <div class="officeSearch unselected">
-            <a href="#">按科室挂号</a>
+            <a href="/OrderAndVisit/officeSearch/">按科室挂号</a>
         </div>
 
         <div class="doctorSearch unselected">
-            <a href="#">按医生挂号</a>
+            <a href="/OrderAndVisit/doctorSearch/,1">按医生挂号</a>
         </div>
     </div>
 
