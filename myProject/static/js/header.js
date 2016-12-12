@@ -23,3 +23,4 @@ $('.search-selection li').click(function () {
     $('.intext').html(_this);
     $('.search-selection').css("display","none");
 })
+

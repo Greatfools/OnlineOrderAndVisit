@@ -13,6 +13,10 @@
     text-align: center;
     color: #fff;
 }
+.search-option{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
 form div{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -29,4 +33,17 @@ form div{
 }
 #registerBtn{
     color: #fff;
+}
+.content{
+    width:1020px;
+    height:700px;
+    position: relative;
+    top:120px;
+    margin:0 auto;
+}
+.footer{
+    height:100px;
+    width:100%;
+    position: absolute;
+    top:800px;
 }

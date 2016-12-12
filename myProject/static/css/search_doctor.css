@@ -9,9 +9,12 @@
 /*background-color: #ffffff;*/
 /*}*/
 .main-body{
+    height:auto;
     width: 1020px;
     padding: 0px 0;
     margin: 0 auto;
+    position: relative;
+    top:120px;
 }
 .index-container {
     width: 1020px;
@@ -62,6 +65,7 @@
     /*background-color: #c0c0c0;*/
     padding-top: 10px;
     padding-left: 20px;
+    padding-right: 20px;
     font-size: 14px;
 }
 .il-left{

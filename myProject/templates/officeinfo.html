@@ -5,15 +5,16 @@
     <title>科室信息</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
 
-    <link rel="stylesheet" href="/static/css/officeinfo.css">
+    <link rel="stylesheet" href="../static/css/officeinfo.css">
 </head>
 <body>
 <!---->
+<div class="header"></div>
 <div class="container">
     <div class="row" id="appointTitleLbl">
-        <div class="col-lg-1 col-md-1">预约挂号</div>
+        <div class="col-lg-2 col-md-2">预约挂号</div>
         <!--<a class="col-lg-2 col-md-2 col-lg-offset-9 col-md-offset-9">选择其他医院</a>-->
     </div>
     <div class="row" id="hosInfo">
@@ -112,7 +113,9 @@
     </div>
     {% endfor %}
 </div>
+<div class="footer"></div>
 </body>
-<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
-<script src="/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+<script src="../static/js/addheader.js"></script>
 </html>
