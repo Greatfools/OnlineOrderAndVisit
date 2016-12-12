@@ -2,4 +2,4 @@ my.cnf
 *.pyc
 .idea/*
 */*.pyc
-
+*/*/*.pyc
