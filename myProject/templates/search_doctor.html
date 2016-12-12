@@ -5,8 +5,8 @@
     <title>医院查询</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/search_doctor.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/search_doctor.css">
 </head>
 <body>
 <div class="header"></div>
@@ -115,7 +115,7 @@
 
         {% for doc in doctors %}
             <div class="hc-pic-box">
-            <img src="../static/img/new_search_doctor_03.png">
+            <img src="/static/img/new_search_doctor_03.png">
             <div class="hc-text">
                 <p class="hs-name">{{doc.name}}</p>
                 <p class="hc-level">{{doc.title}}</p>
@@ -149,8 +149,8 @@
 <div class="footer"></div>
 <!-- TODO: footer js修改-->
 </body>
-<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/search_hospital.js"></script>
-<script src="../static/js/addheader.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/search_hospital.js"></script>
+<script src="/static/js/addheader.js"></script>
 </html>
