@@ -1,4 +1,5 @@
 my.cnf
 *.pyc
 .idea/*
+*/*.pyc
 
