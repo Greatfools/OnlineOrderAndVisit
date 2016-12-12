@@ -52,9 +52,15 @@
                         未付款
                       {% endif %}
                     </td>
+                    {% if appoint.isCanceled == False %}
                     <td>
-                      <a href="http://kevinfeng.moe/pay.html">支付</a> <a>取消</a> <a>打印预约单</a> <a>打印挂号单</a>
+                      {% url 'cancelinfo' appoint.id as curl %}
+                      {% url 'payinfo' appoint.id as purl %}
+                      {% if appoint.isPayed == False %}<a href="{{ purl }}">支付</a>{% endif %} <a href="{{ curl }}">取消</a> <a>打印预约单</a> <a>打印挂号单</a>
                     </td>
+                    {% else %}
+                    <td>已取消预约不可操作   　　　　　</td>
+                    {% endif %}
                   </tr>
                 {% endfor %}
                 </tbody>

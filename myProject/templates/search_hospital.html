@@ -112,42 +112,66 @@
             </div>
         </div>
         <div class="hosp-container">
+            <!--<div class="hc-pic-box">-->
+                <!--<img src="../static/img/new_search_doctor_03.png">-->
+                <!--<div class="hc-text">-->
+                    <!--<span class="hs-name">北京大学人民医院: </span><span id="hosname">{{hosname}}</span><br>-->
+                    <!--<p class="hs-name">北京大学人民医院</p><p>{{hosname}}</p>-->
+                    <!--<p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>-->
+                    <!--<p class="hs-info">医院地址： xxxxxxx</p>-->
+                <!--</div>-->
+                <!--<p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>-->
+            <!--</div>-->
+            {% for hos in hosinfo %}
             <div class="hc-pic-box">
                 <img src="../static/img/new_search_doctor_03.png">
                 <div class="hc-text">
-                    <p class="hs-name">北京大学人民医院</p>
-                    <p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>
-                    <p class="hs-info">医院地址： xxxxxxx</p>
+                    <p class="hs-name">{{hos.0.name}}</p>
+                    <p class="hs-info">有优质医生{{hos.1}}人 | 完成服务{{hos.2}}次</p>
+                    <p class="hs-info">医院地址： {{hos.0.address}}</p>
                 </div>
                 <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
             </div>
-            <div class="hc-pic-box">
-                <img src="../static/img/new_search_doctor_03.png">
-                <div class="hc-text">
-                    <p class="hs-name">北京大学人民医院</p>
-                    <p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>
-                    <p class="hs-info">医院地址： xxxxxxx</p>
-                </div>
-                <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
-            </div>
-            <div class="hc-pic-box">
-                <img src="../static/img/new_search_doctor_03.png">
-                <div class="hc-text">
-                    <p class="hs-name">北京大学人民医院</p>
-                    <p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>
-                    <p class="hs-info">医院地址： xxxxxxx</p>
-                </div>
-                <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
-            </div>
-            <div class="hc-pic-box">
-                <img src="../static/img/new_search_doctor_03.png">
-                <div class="hc-text">
-                    <p class="hs-name">北京大学人民医院</p>
-                    <p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>
-                    <p class="hs-info">医院地址： xxxxxxx</p>
-                </div>
-                <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
-            </div>
+            {% endfor %}
+
+            <!--{% for hospital in hospitals %}-->
+            <!--<div class="hc-pic-box">-->
+                <!--<img src="../static/img/new_search_doctor_03.png">-->
+                <!--<div class="hc-text">-->
+                    <!--<p class="hs-name">{{hospital.name}}</p>-->
+                    <!--<p class="hs-info">有优质医生{{test.0.1}}人 | 完成服务{{test}}次</p>-->
+                    <!--<p class="hs-info">医院地址： {{hospital.address}}</p>-->
+                <!--</div>-->
+                <!--<p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>-->
+            <!--</div>-->
+            <!--{% endfor %}-->
+            <!--<div class="hc-pic-box">-->
+                <!--<img src="../static/img/new_search_doctor_03.png">-->
+                <!--<div class="hc-text">-->
+                    <!--<p class="hs-name">北京大学人民医院</p>-->
+                    <!--<p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>-->
+                    <!--<p class="hs-info">医院地址： xxxxxxx</p>-->
+                <!--</div>-->
+                <!--<p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>-->
+            <!--</div>-->
+            <!--<div class="hc-pic-box">-->
+                <!--<img src="../static/img/new_search_doctor_03.png">-->
+                <!--<div class="hc-text">-->
+                    <!--<p class="hs-name">北京大学人民医院</p>-->
+                    <!--<p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>-->
+                    <!--<p class="hs-info">医院地址： xxxxxxx</p>-->
+                <!--</div>-->
+                <!--<p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>-->
+            <!--</div>-->
+            <!--<div class="hc-pic-box">-->
+                <!--<img src="../static/img/new_search_doctor_03.png">-->
+                <!--<div class="hc-text">-->
+                    <!--<p class="hs-name">北京大学人民医院</p>-->
+                    <!--<p class="hs-info">有优质医生xx人 | 完成服务xxx次</p>-->
+                    <!--<p class="hs-info">医院地址： xxxxxxx</p>-->
+                <!--</div>-->
+                <!--<p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>-->
+            <!--</div>-->
         </div>
         <nav class="page-direct">
             <ul class="pagination">

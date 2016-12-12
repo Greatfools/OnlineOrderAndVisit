@@ -112,54 +112,25 @@
         </div>
     </div>
     <div class="hosp-container">
-        <div class="hc-pic-box">
+
+        {% for doc in doctors %}
+            <div class="hc-pic-box">
             <img src="../static/img/new_search_doctor_03.png">
             <div class="hc-text">
-                <p class="hs-name">医生C</p>
-                <p class="hc-level">副主任医师</p>
-                <p class="hs-info">武警总医院</p>
-                <p class="hc-info-detail">中西医康复理疗科</p>
+                <p class="hs-name">{{doc.name}}</p>
+                <p class="hc-level">{{doc.title}}</p>
+                <p class="hs-info">{{doc.departmentId.hospitalId.name}}</p>
+                <p class="hc-info-detail">{{doc.departmentId.name}}</p>
                 <p class="hs-goodat">擅长诊治</p>
-                <p class="hc-goodat-detail">心脑血管疾病，老年性疾病，小二脑瘫，小二多动症，抽动症等疾病的治疗</p>
+                <p class="hc-goodat-detail">{{doc.introduction}}</p>
             </div>
             <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
         </div>
-        <div class="hc-pic-box">
-            <img src="../static/img/new_search_doctor_03.png">
-            <div class="hc-text">
-                <p class="hs-name">医生C</p>
-                <p class="hc-level">副主任医师</p>
-                <p class="hs-info">武警总医院</p>
-                <p class="hc-info-detail">中西医康复理疗科</p>
-                <p class="hs-goodat">擅长诊治</p>
-                <p class="hc-goodat-detail">心脑血管疾病，老年性疾病，小二脑瘫，小二多动症，抽动症等疾病的治疗</p>
-            </div>
-            <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
-        </div>
-        <div class="hc-pic-box">
-            <img src="../static/img/new_search_doctor_03.png">
-            <div class="hc-text">
-                <p class="hs-name">医生C</p>
-                <p class="hc-level">副主任医师</p>
-                <p class="hs-info">武警总医院</p>
-                <p class="hc-info-detail">中西医康复理疗科</p>
-                <p class="hs-goodat">擅长诊治</p>
-                <p class="hc-goodat-detail">心脑血管疾病，老年性疾病，小二脑瘫，小二多动症，抽动症等疾病的治疗</p>
-            </div>
-            <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
-        </div>
-        <div class="hc-pic-box">
-            <img src="../static/img/new_search_doctor_03.png">
-            <div class="hc-text">
-                <p class="hs-name">医生C</p>
-                <p class="hc-level">副主任医师</p>
-                <p class="hs-info">武警总医院</p>
-                <p class="hc-info-detail">中西医康复理疗科</p>
-                <p class="hs-goodat">擅长诊治</p>
-                <p class="hc-goodat-detail">心脑血管疾病，老年性疾病，小二脑瘫，小二多动症，抽动症等疾病的治疗</p>
-            </div>
-            <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
-        </div>
+        {% endfor %}
+
+
+
+        
     </div>
     <nav class="page-direct">
         <ul class="pagination">

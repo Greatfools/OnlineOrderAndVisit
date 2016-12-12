@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>科室信息</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+
+    <link rel="stylesheet" href="/static/css/officeinfo.css">
+</head>
+<body>
+<!---->
+<div class="container">
+    <div class="row" id="appointTitleLbl">
+        <div class="col-lg-1 col-md-1">预约挂号</div>
+        <!--<a class="col-lg-2 col-md-2 col-lg-offset-9 col-md-offset-9">选择其他医院</a>-->
+    </div>
+    <div class="row" id="hosInfo">
+        <div class="row col-lg-12 col-md-12" id="hosInfoCntnt">
+            <div class="col-lg-12 col-md-12" id="hosInfoTitle"><b>{{h.name}}--{{d.name}}</b></div>
+            <img src="{{h.img}}" class="img-responsive col-lg-2 col-md-2" />
+            <div class="col-lg-10 col-md-10" id="hosInfoSim">
+                <span class="hosInfoBlack">地址: </span><span class="hosInfoGrey">{{h.address}}</span><br>
+                <span class="hosInfoBlack">电话: </span><span class="hosInfoGrey">{{h.phonenum}}</span><br>
+                <span class="hosInfoBlack">简介: </span><span class="hosInfoGrey">{{h.introduction}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="appointCntntLbl">
+        <span class="col-lg-2 col-md-2"><b>科室排班表</b></span>
+        <a href="/OrderAndVisit/hospital/{{h.id}}" class="col-lg-2 col-md-2">返回科室列表</a>
+    </div>
+    <div class="row" id="appointCntnt">
+        <div class="col-lg-9 col-md-9" id="tableRoot">
+            <table class="col-lg-9 col-md-9 table table-bordered table-hover ">
+                <thead>
+                <tr>
+                    <th rowspan="2" id="specialTH">就诊时段</th>
+                    <!--<th>xx月xx日</th>-->
+                    {% for date in dateprint %}
+                    <th>{{date}}</th>
+                    {% endfor %}
+                </tr>
+                <tr class="appntTimeGrey">
+                    <!--<th>今天</th>-->
+                    <!--<th>明天</th>-->
+                    <!--<th>后天</th>-->
+                    <!--<th>大后天</th>-->
+                    <!--<th>大大后天</th>-->
+                    <!--<th>大大大后天</th>-->
+                    <!--<th>大大大大后天</th>-->
+                    {% for week in dateweek %}
+                    <th>星期{{week}}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>上午</td>
+                    {% for morn in morning %}
+                    {% if morn %}
+                    <td class="appntBlue"><a href="/OrderAndVisit/officeinfo/o1{{o_id}}d2{{morn}}">点击预约</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>下午</td>
+                    {% for after in afternoon %}
+                    {% if after %}
+                    <td class="appntBlue"><a href="/OrderAndVisit/officeinfo/o1{{o_id}}d2{{after}}">点击预约</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>晚上</td>
+                    {% for even in evening %}
+                    {% if even %}
+                    <td class="appntBlue"><a href="/OrderAndVisit/officeinfo/o1{{o_id}}d2{{even}}">点击预约</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3 col-lg-3" id="appointRuleDiv">
+            <div id="appointRuleLbl">预约规则</div>
+            <span class="InfoBlack">dddd</span>
+            <span class="InfoGrey">yyyyy</span>
+        </div>
+    </div>
+    {% for vis in visitList %}
+    <div class="row" id="appointDocList">
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/new_search_doctor_03.png"/>
+        <span class="col-lg-2 col-md-2 docNameBlack"><a href="/OrderAndVisit/doctor/{{vis.doctorId.id}}">{{vis.doctorId.name}}</a></span>
+        <div class="col-lg-2 col-md-2 docIntro">简介:{{vis.doctorId.introduction}}</div>
+        <div class="col-lg-2 col-md-2 col-lg-offset-3 col-md-offset-3">
+            <span class="feeGrey">挂号费: </span><span class="feeRed">{{vis.doctorId.fee}}元</span><br>
+            <span class="feeGrey">剩余号: </span><span class="feeOrange">{{vis.restNumber}}</span>
+        </div>
+        {% url 'orderinfo' vis.id as ourl %}
+        <button class="btn btn-info col-lg-offset-1 col-md-offset-1 col-lg-1 col-md-1" onclick="location.href='{{ ourl }}'">预约挂号</button>
+    </div>
+    {% endfor %}
+</div>
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+</html>
