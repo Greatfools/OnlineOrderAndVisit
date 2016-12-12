@@ -1,3 +1,4 @@
+
 #appointTitleLbl{
     border-bottom: solid 2px #60bff2;
 }
@@ -18,7 +19,11 @@
 #hosInfo{
     background-color: #f7f7f7;
 }
-#hosInfoSim div{
+.hosInfoBlack{
+    color: #000;
+    font-size: 12px;
+}
+.hosInfoGrey{
     color: #9c9c9c;
     font-size: 12px;
 }
@@ -29,6 +34,8 @@
 #appointCntntLbl *{
     padding-left: 0px !important;
     padding-right: 0px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 #appointCntntLbl a{
     color: #60bff2;
@@ -38,9 +45,17 @@
     color: #1fa4f0;
     text-decoration: none;
 }
+#appointCntnt{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
 #tableRoot{
     padding-right: 0px !important;
     padding-left: 0px !important;
+}
+#specialTH{
+    padding-top: 0.25em;
+    padding-bottom: 1.75em;
 }
 .appntBlue{
     background-color: #e0eefd;
@@ -68,8 +83,15 @@ th{
 .InfoGrey{
     color: #b5b5b5;
 }
+#appointDocList{
+    border-bottom: 1px solid #9c9c9c;
+}
 .docNameBlack{
     font-size: 14px;
+}
+.docIntro{
+    font-size: 12px;
+    color: #9c9c9c;
 }
 .feeGrey{
     color: #b5b5b5;
