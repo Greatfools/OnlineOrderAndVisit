@@ -126,12 +126,20 @@
             </div>
             <p><a href="/OrderAndVisit/doctor/{{doc.id}}/" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
         </div>
+        {% empty %}
+        <div class="hosp-container">
+            <div class="no-hospital">
+                <img src="/static/img/no-hospital.png">
+                <p>抱歉！没有符合条件的医生</p>
+            </div>
+        </div>
         {% endfor %}
 
 
 
-        
+
     </div>
+    {% if doc %}
     <nav class="page-direct">
         <ul class="pagination">
             <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},1">&laquo;</a></li>
@@ -143,6 +151,7 @@
 
         </ul>
     </nav>
+    {% endif %}
 
 </div>
 

@@ -16,6 +16,12 @@
     position: relative;
     top:120px;
 }
+.no-hospital{
+    position: absolute;
+    top: 50px;
+    left: 270px;
+    text-align: center;
+}
 .index-container {
     width: 1020px;
     height: 241px;

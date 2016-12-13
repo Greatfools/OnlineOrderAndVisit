@@ -32,6 +32,7 @@ def search(request):
 	if 'key' in request.GET and 'choice' in request.GET and request.GET['choice'] and request.GET['key']:
 		choice = request.GET['choice']
 		key = request.GET['key']  # q is an object submitted by front
+		print choice
 		if choice == 'h':
 			return HttpResponseRedirect('/OrderAndVisit/hospitalSearch/' + key +',1,1/')
 		elif choice == 'o':
@@ -580,7 +581,8 @@ def doctorSearch(request,doctorname,page):
 
 # 科室列表，单独页面
 def officeSearch(request):
-	return render_to_response('search_office.html')
+    dep = Department.objects.order_by("classinfo")
+    return render_to_response('search_office.html',{"dep":dep,})
 
 #　用户信息，单独页面
 def myinfo(request):
