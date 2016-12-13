@@ -15,32 +15,32 @@
             </div>
             <div id="login">
                 <form action="/OrderAndVisit/login">
-                <dl class="dl_username">
-                    <dt>用户名：</dt>
-                    <dd>
-                        <input class="usernameInput" placeholder="请输入用户名" name="name">
-                    </dd>
-                </dl>
-                <dl class="dl_password">
-                    <dt>密&nbsp;码：</dt>
-                    <dd>
-                        <input type="password" class="passwordInput" placeholder="请输入密码" name="password">
-                    </dd>
-                </dl>
-                <div class="submit">
-                    <input id="submitLogin" type="submit" value="登录">
-                    <a href="/OrderAndVisit/registerpage/" id="registerButton">注册</a>
-                </div>
+                    <dl class="dl_username">
+                        <dt>用户名：</dt>
+                        <dd>
+                            <input class="usernameInput" placeholder="请输入用户名" name="name">
+                        </dd>
+                    </dl>
+                    <dl class="dl_password">
+                        <dt>密&nbsp;码：</dt>
+                        <dd>
+                            <input type="password" class="passwordInput" placeholder="请输入密码" name="password">
+                        </dd>
+                    </dl>
+                    <div class="submit">
+                        <input id="submitLogin" type="submit" value="登录">
+                        <a href="/OrderAndVisit/registerpage/" id="registerButton">注册</a>
+                    </div>
                 </form>
             </div>
         </div>
         <!-------->
         <div class="logo">
-        <a class='logo' href="/OrderAndVisit/">
-            <img class="logo" src="/static/img/logo.png">
-        </a>
+            <a class='logo' href="/OrderAndVisit/">
+                <img class="logo" src="/static/img/logo.png">
+            </a>
         </div>
-        <div class="area" ></div>
+        <div class="area"></div>
 
 
         <div class="keyword"></div>
@@ -52,23 +52,37 @@
 
             <div class="search-selection" style="display: none;">
                 <ul>
+<<<<<<< HEAD
                     <!--<select name="choice">-->
                     <!--<option value="h"><li>医&nbsp;院</li></option>-->
                     <!--<option value="o"><li>科&nbsp;室</li></option>-->
                     <!--<option value="d"><li>医&nbsp;生</li></option>-->
                     <!--</select>-->
                     <li value="h" name="choice">医　院</li>
+=======
+                    <!--隐藏的input表单用来获取已经选取的选项-->
+                    <input id="selection" value="h" style="display: none;">
+
+                    <!-- <select name="choice">-->
+                    <!--<option value="h"><li>医&nbsp;院</li></option>
+                    <option value="o"><li>科&nbsp;室</li></option>
+                    <option value="d"><li>医&nbsp;生</li></option>
+                    </select>-->
+
+                    <li value="h">医　院</li>
+>>>>>>> c1bde44812dec55de80ef035410b4be5bc6be488
                     <li value="o">科　室</li>
                     <li value="d">医　生</li>
                 </ul>
             </div>
             <input id="searchInput" placeholder="请输入医院/科室/医生" type="text" name="key">
-            <button id="searchButton" type="submit" >搜&nbsp;索</button>
+            <button id="searchButton" type="submit">搜&nbsp;索</button>
         </form>
         <div class="login">
             {% if user %}
             <div class="welcomebuttom">
-                欢迎您！<a href="/OrderAndVisit/myInfo/">{{name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/OrderAndVisit/logout/">注销</a>
+                欢迎您！<a href="/OrderAndVisit/myInfo/">{{name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                    href="/OrderAndVisit/logout/">注销</a>
             </div>
             {% else %}
             <div class="loginButton">
