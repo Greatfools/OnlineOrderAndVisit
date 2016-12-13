@@ -175,13 +175,12 @@
         </div>
         <nav class="page-direct">
             <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
+                <li><a href="/OrderAndVisit/hospitalSearch/{{hospitalname}},{{flag}},1">&laquo;</a></li>
+                {% for i in pagerange%}
+                    <li><a href="/OrderAndVisit/hospitalSearch/{{hospitalname}},{{flag}},{{i}}">{{i}}</a></li>
+                {% endfor %}
+                <li><a href="/OrderAndVisit/hospitalSearch/{{hospitalname}},{{flag}},{{pageend}}">&raquo;</a></li>
+
             </ul>
         </nav>
 

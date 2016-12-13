@@ -17,6 +17,8 @@ urlpatterns = [
 	url(r'^registerpage',views.registerpage, name = 'registerpage'),
     # 个人信息查看页面
 	url(r'myInfo/', views.myinfo, name = 'myInfo'),
+	# 修改密码处理函数
+	url(r'changepassword/', views.changepassword, name="changepassword"),
 	# header中搜索函数
 	url(r'^search/', views.search),
     #　以医院，科室为关键字的搜索列表
@@ -38,7 +40,7 @@ urlpatterns = [
     url(r'^orderinfo/\((.+)L,\)/$', views.orderInfo, name='orderinfo'),
 	# 取消预约，完成后跳转到？
 	#url(r'^cancelInfo/', views.cancelInfo, name = 'cancelInfo'),
-    url(r'^appointinfo/(.+)',views.cancelInfo, name='cancelinfo'),
+    url(r'^appointinfo/cid(.+)',views.cancelInfo, name='cancelinfo'),
 	# 进行支付， 完成后跳转到？
 	#url(r'^payInfo/', views.payInfo, name = 'payInfo'),
     url(r'^appointinfo/pid(.+)',views.payInfo, name='payinfo'),
@@ -46,7 +48,7 @@ urlpatterns = [
 	url(r'^header.html$', views.header, name = 'header'),
     #　尾部
     url(r'^footer.html$', views.footer, name ='footer'),
-
+	# 弹窗页面
 	url(r'^appointinfo/ms=(.)', views.message_append, name='message_append'),
 ]
 

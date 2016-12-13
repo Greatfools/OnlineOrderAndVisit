@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>医院查询</title>
+    <title>医生查询</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
@@ -134,13 +134,13 @@
     </div>
     <nav class="page-direct">
         <ul class="pagination">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
+            <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},1">&laquo;</a></li>
+            {% for i in pagerange%}
+                <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},{{i}}">{{i}}</a></li>
+            {% endfor %}
+
+            <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},{{pageend}}">&raquo;</a></li>
+
         </ul>
     </nav>
 
