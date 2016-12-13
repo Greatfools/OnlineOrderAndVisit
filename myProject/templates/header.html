@@ -14,22 +14,24 @@
                 <img src="/static/img/dl_close.png">
             </div>
             <div id="login">
+                <form action="/OrderAndVisit/login">
                 <dl class="dl_username">
                     <dt>用户名：</dt>
                     <dd>
-                        <input class="usernameInput" placeholder="请输入用户名">
+                        <input class="usernameInput" placeholder="请输入用户名" name="name">
                     </dd>
                 </dl>
                 <dl class="dl_password">
                     <dt>密&nbsp;码：</dt>
                     <dd>
-                        <input class="passwordInput" placeholder="请输入密码">
+                        <input type="password" class="passwordInput" placeholder="请输入密码" name="password">
                     </dd>
                 </dl>
                 <div class="submit">
                     <input id="submitLogin" type="submit" value="登录">
                     <a href="/OrderAndVisit/registerpage/" id="registerButton">注册</a>
                 </div>
+                </form>
             </div>
         </div>
         <!-------->
@@ -64,12 +66,18 @@
             <button id="searchButton" type="submit" >搜&nbsp;索</button>
         </form>
         <div class="login">
+            {% if user %}
+            <div class="welcomebuttom">
+                欢迎您！<a href="/OrderAndVisit/myInfo/">{{name}}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/OrderAndVisit/logout/">注销</a>
+            </div>
+            {% else %}
             <div class="loginButton">
                 <button href="#">登&nbsp;录</button>
             </div>
             <div class="registerButton">
                 <a href="/OrderAndVisit/registerpage/">注&nbsp;册</a>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

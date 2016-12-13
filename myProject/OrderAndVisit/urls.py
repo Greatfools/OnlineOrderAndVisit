@@ -9,6 +9,8 @@ urlpatterns = [
 	url(r'^$', views.index, name = 'index'),
 	# 登录
 	url(r'^login', views.login, name = 'login'),
+	# 注销
+	url(r'^logout', views.logout, name = 'logout'),
 	# 注册处理函数
 	url(r'^register/', views.register, name = 'register'),
     # 注册页面

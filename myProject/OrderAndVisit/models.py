@@ -16,7 +16,7 @@ class Hospital(models.Model):
 
 class User(models.Model):
     userName = models.CharField(max_length = 20)
-    password = models.CharField(max_length = 20)
+    password = models.CharField(max_length = 100)
     name = models.CharField(max_length = 20)
     sex = models.CharField(max_length = 4)
     birthday = models.CharField(max_length = 20)
