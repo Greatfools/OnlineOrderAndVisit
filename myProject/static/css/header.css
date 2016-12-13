@@ -236,6 +236,13 @@ body {
     height:36px;
     display: inline-block;
 }
+.welcomebuttom{
+    width:170px;
+    height:36px;
+    display: inline-block;
+    /*text-align:center;*/
+    padding-top:6px;
+}
 .loginButton button{
     width:79px;
     height:36px;

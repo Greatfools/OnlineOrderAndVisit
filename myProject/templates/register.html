@@ -20,30 +20,38 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <form id="registerForm" class="col-md-offset-1 col-lg-offset-1">
+        <form id="registerForm" class="col-md-offset-1 col-lg-offset-1" action="/OrderAndVisit/register/">
+             <div class="row">
+                <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
+                    <div class="formDiv" id="usernameDiv">用户名:  </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <input name="username"/>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
                     <div class="formDiv" id="nameDiv">姓名:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input id="nameInput"/>
+                    <input id="nameInput" name="name"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
-                    <div class="formDiv" id="genderDiv">性别:  </div>
+                    <div class="formDiv" id="genderDiv" >性别:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input/>
+                    <input name="gender"/>
                 </div>
             </div>
             <div class="row">
 
                 <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
-                    <div class="formDiv" id="IDCDiv">身份证号:  </div>
+                    <div class="formDiv" id="IDCDiv" >身份证号:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input id="IDCInput"/>
+                    <input id="IDCInput" name="idNum"/>
                 </div>
             </div>
             <div class="row">
@@ -51,7 +59,7 @@
                     <div class="formDiv" id="BirthdateDiv">出生日期:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input type="date"/>
+                    <input type="date" name="birthdate"/>
                 </div>
             </div>
             <div class="row">
@@ -59,7 +67,7 @@
                     <div class="formDiv" id="setPW">设置密码:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input type="password"/>
+                    <input type="password" name="password"/>
                 </div>
             </div>
             <div class="row">
@@ -67,7 +75,7 @@
                     <div class="formDiv" id="checkPWDiv">确认密码:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input type="password"/>
+                    <input type="password" name="password2"/>
                 </div>
             </div>
             <div class="row">
@@ -75,17 +83,17 @@
                     <div class="formDiv" id="phoneNumDiv">手机号码:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input/>
+                    <input name="phoneNum"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-offset-5 col-md-offset-5 col-md-4 col-lg-4 ">
-                    <input type="checkbox">
+                    <input type="checkbox" value="c" name="checkbox">
                     <span class="lblGrey">本人同意</span><a href="#">预约挂号服务协议</a>
                 </div>
             </div>
             <div class="row">
-                <button class="btn btnOrange col-lg-2 col-md-2 col-md-offset-5 col-lg-offset-5" id="registerBtn">注册</button>
+                <input type="submit" class="btn btnOrange col-lg-2 col-md-2 col-md-offset-5 col-lg-offset-5" id="registerBtn" value="注册">
             </div>
         </form>
     </div>

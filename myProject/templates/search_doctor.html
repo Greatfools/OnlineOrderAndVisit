@@ -117,14 +117,14 @@
             <div class="hc-pic-box">
             <img src="/static/img/new_search_doctor_03.png">
             <div class="hc-text">
-                <p class="hs-name">{{doc.name}}</p>
+                <p class="hs-name"><a href="/OrderAndVisit/doctor/{{doc.id}}/">{{doc.name}}</a></p>
                 <p class="hc-level">{{doc.title}}</p>
                 <p class="hs-info">{{doc.departmentId.hospitalId.name}}</p>
                 <p class="hc-info-detail">{{doc.departmentId.name}}</p>
                 <p class="hs-goodat">擅长诊治</p>
                 <p class="hc-goodat-detail">{{doc.introduction}}</p>
             </div>
-            <p><a href="#" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
+            <p><a href="/OrderAndVisit/doctor/{{doc.id}}/" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
         </div>
         {% endfor %}
 
