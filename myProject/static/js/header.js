@@ -20,6 +20,9 @@ $('.search-option').click(function () {
 })
 $('.search-selection li').click(function () {
     var _this=$(this).text();
+    var value0=$(this).val();
+    $('#selection').val(value0);
+
     $('.intext').html(_this);
     $('.search-selection').css("display","none");
 })
