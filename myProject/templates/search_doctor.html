@@ -115,7 +115,11 @@
 
         {% for doc in doctors %}
             <div class="hc-pic-box">
-            <img src="/static/img/new_search_doctor_03.png">
+                {% ifequal doc.sex 'm' %}
+            <img src="/static/img/doctorinfo/new_search_doctor_03.png" width="121px" height="123px">
+                {% else %}
+             <img src="/static/img/doctorinfo/new_search_doctor_06.png" width="121px" height="123px">
+                {% endifequal %}
             <div class="hc-text">
                 <p class="hs-name"><a href="/OrderAndVisit/doctor/{{doc.id}}/">{{doc.name}}</a></p>
                 <p class="hc-level">{{doc.title}}</p>
@@ -139,7 +143,7 @@
 
 
     </div>
-    {% if doc %}
+    {% if pagerange %}
     <nav class="page-direct">
         <ul class="pagination">
             <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},1">&laquo;</a></li>

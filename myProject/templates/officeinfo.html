@@ -101,7 +101,11 @@
     </div>
     {% for vis in visitList %}
     <div class="row" id="appointDocList">
-        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/new_search_doctor_03.png"/>
+        {% ifequal vis.doctorId.sex 'm' %}
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/doctorinfo/new_search_doctor_03.png"/>
+        {% else %}
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/doctorinfo/new_search_doctor_06.png"/>
+        {% endifequal %}
         <span class="col-lg-2 col-md-2 docNameBlack"><a href="/OrderAndVisit/doctor/{{vis.doctorId.id}}">{{vis.doctorId.name}}</a></span>
         <div class="col-lg-2 col-md-2 docIntro">简介:{{vis.doctorId.introduction}}</div>
         <div class="col-lg-2 col-md-2 col-lg-offset-3 col-md-offset-3">

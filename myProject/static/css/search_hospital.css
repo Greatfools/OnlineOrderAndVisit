@@ -167,6 +167,11 @@
     position:relative;
     top:2px;
 }
+.hs-no-real-name{
+    font-size: 18px;
+    color: #101010;
+    margin-bottom:3px;
+}
 .page-direct{
     position: absolute;
     /*top: 930px;*/

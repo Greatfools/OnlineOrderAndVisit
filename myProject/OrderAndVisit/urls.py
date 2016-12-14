@@ -50,5 +50,9 @@ urlpatterns = [
     url(r'^footer.html$', views.footer, name ='footer'),
 	# 弹窗页面
 	url(r'^appointinfo/ms=(.)', views.message_append, name='message_append'),
+	# 预约单
+	#url(r'^orderform/oid(.+)$', views.OrderForm, name='orderform'),
+	# 挂号单
+	#url(r'^bookform/oid(.+)$', views.BookForm, name='bookform'),
 ]
 

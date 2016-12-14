@@ -11,7 +11,8 @@
     text-decoration: none;
 }
 #hosBscInfo img, #hosBscInfo div{
-    padding-bottom: 50px !important;
+    padding-top: 5px !important;
+    padding-bottom: 20px !important;
     border-bottom: solid #6cf 2px;
 }
 .hosInfoGrey{

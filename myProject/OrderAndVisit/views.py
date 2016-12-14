@@ -140,9 +140,7 @@ def doctor(request,did):
 			cursor = connection.cursor()
 			cursor.execute("""
 					SELECT id FROM OrderAndVisit_visitmessage
-					WHERE doctorId_id in (
-					SELECT id FROM OrderAndVisit_doctor
-					WHERE departmentId_id = '%s') AND
+					WHERE doctorId_id = '%s' AND
 					visitDate = '%s' AND
 					visitTime = '%s' AND
 					restNumber > 0""" % (did,visitdate[i], time))
@@ -153,7 +151,6 @@ def doctor(request,did):
 			else:
 				visitId[j][i] = False
 
-			#
 	m=[]
 	for i in visitId[0]:
 		m.append(i)
@@ -170,7 +167,7 @@ def doctor(request,did):
 	t=Template(fp.read())
 	fp.close()
 	#t=get_template('doctorinfo.html')
-	html = t.render(Context({'date': dateprint,'name':doc.name,'info':doc.introduction,'address':doc.address,'dep':dep.name,'hos':hos.name,'morning':visitId[0],'afternoon':visitId[1],'evening':visitId[2],'week':dateweek}))
+	html = t.render(Context({'date': dateprint,'sex':doc.sex,'name':doc.name,'info':doc.introduction,'address':doc.address,'dep':dep.name,'hos':hos.name,'morning':visitId[0],'afternoon':visitId[1],'evening':visitId[2],'week':dateweek}))
 	return HttpResponse(html)
 
 #　显示医院信息，单独页面
@@ -228,7 +225,7 @@ def hospital(request,hid):
 	fp.close()
 
 	#t=get_template('doctorinfo.html')
-	html=t.render(Context({'name':hos.name,'address':hos.address,'phonenum':hos.phonenum,'docnum':row[0][0],'info':hos.introduction,'dep':dep,'peoplen':peopleNum[0][0]}))
+	html=t.render(Context({'name':hos.name,'img':hos.img,'address':hos.address,'phonenum':hos.phonenum,'docnum':row[0][0],'info':hos.introduction,'dep':dep,'peoplen':peopleNum[0][0]}))
 	return HttpResponse(html)
 
 # 预约挂号，处理函数，跳转到？
@@ -365,10 +362,12 @@ def login(request):
 		if 'password' in request.GET and request.GET['password']:
 			userName = request.GET['name']
 			userPassword = request.GET['password']
-			res = User.objects.get(userName = userName)
-			if not res:
+
+			res1 = User.objects.filter(userName = userName)
+			if not res1:
 				return message_append(request, "用户名错误", "/OrderAndVisit/")
 			else:
+				res = res1[0]
 				m = hashlib.md5()
 				m.update(userPassword)
 				userPassword = m.hexdigest()
@@ -431,7 +430,7 @@ def register(request):
 			password = m.hexdigest()
 			user_tmp = User(userName=username, name=name, password=password, sex=sex, birthday=birthDate, telephone=phoneNum, idCard=idNum)
 			user_tmp.save()
-			res = User.objects.get(name=name)
+			#res = User.objects.get(name=name)
 			request.session['member_id'] = res.id
 		 return HttpResponseRedirect('/OrderAndVisit/')
 # # 验证手机号
@@ -469,17 +468,26 @@ def hospitalSearch(request,hospitalname,flag,page):
     pagecounter = 0
     pagestart = 0
     pageend = 0
+    flagbool = True
+    hospitals = []
+    departments = []
 
     if(flagnum==1):
+        flagbool = True
         #print "test"
         hospitals = Hospital.objects.filter(name__contains=hospitalname)
     else:
-        hospitals =  Hospital.objects.raw('''SELECT *
-                                            FROM OrderAndVisit_hospital
-                                            Where id in
-                                            (SELECT hospitalId_id
-                                            FROM OrderAndVisit_department
-                                            WHERE name LIKE '%s')'''%unicode(hospitalname))
+        flagbool = False
+        departments = Department.objects.filter(name__contains=hospitalname)
+        for department in departments:
+            hospitals.append(department.hospitalId)
+        # hospitals = departments.hospitalId
+        # hospitals =  Hospital.objects.raw('''SELECT *
+        #                                     FROM OrderAndVisit_hospital
+        #                                     Where id in
+        #                                     (SELECT hospitalId_id
+        #                                     FROM OrderAndVisit_department
+        #                                     WHERE name LIKE '%s')'''%unicode(hospitalname))
 
     hosnum=0
     docnum=[]
@@ -530,7 +538,8 @@ def hospitalSearch(request,hospitalname,flag,page):
     t = Template(fp.read())
     fp.close()
     hosinfo=zip(hospitals,docnum,ordernum)
-    html = t.render(Context({'hosinfo': hosinfo[hosstart:hosend],'pagerange':range(pagestart,pageend),'flag':flag,'hospitalname':hospitalname,'pageend':pagecounter}))
+    depinfo=zip(departments,docnum,ordernum)
+    html = t.render(Context({'hosinfo': hosinfo[hosstart:hosend],'depinfo': depinfo[hosstart:hosend],'flagbool':flagbool,'pagerange':range(pagestart,pageend),'flag':flag,'hospitalname':hospitalname,'pageend':pagecounter}))
     return  HttpResponse(html)
 
 # 医生列表，单独页面
@@ -589,9 +598,13 @@ def myinfo(request):
 	if 'member_id' in request.session and request.session['member_id']:
 		user_id = request.session['member_id']
 		res = User.objects.get(id = user_id)
+		if res.sex == 'm':
+			sex = '男'
+		else:
+			sex = '女'
 		ret = {
 			'name': res.name,
-			'sex': res.sex,
+			'sex': sex,
 			'idNum': res.idCard,
 			'telephone': res.telephone,
 			'birthday':res.birthday

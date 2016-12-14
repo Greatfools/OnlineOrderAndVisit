@@ -8,4 +8,7 @@ function load() {
         $(this).css("paddingTop",($(this).next().height()-$(this).height())/2);
         $(this).css("paddingBottom",($(this).next().height()-$(this).height())/2);
     })
+    //alert($("hosImg").height());
+    //alert($("#hosInfoSim").height());
+    $("#hosImg").height($("#hosInfoSim").height());
 }
