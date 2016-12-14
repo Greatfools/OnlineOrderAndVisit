@@ -47,7 +47,9 @@
                     <td>{{ appoint.visitId.doctorId.name }}</td>
                     <td>{{ appoint.visitId.doctorId.fee }}</td>
                     <td>
-                      {% if appoint.isPayed == True %}
+                        {% if appoint.isCanceled == True %}
+                        已取消
+                      {% elif appoint.isPayed == True %}
                         已付款
                       {% else %}
                         未付款

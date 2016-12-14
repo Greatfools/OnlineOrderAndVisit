@@ -31,7 +31,7 @@ window.onafterprint = new Function("document.all.pr.style.display=''");
 <tr><td width="196" >科室</td><td width="99" >医生</td><td width="99" >日期</td><td width="260" >预约时间</td>
 <tr><td>{{department}}</td><td>{{doctor}}</td><td>{{date}}</td><td>{% if time == 'm' %}上午{% elif time == 'a' %}下午{% else %}晚上{%endif%}</td>
 <tr><td rowspan=2>患者信息</td><td>姓名</td><td>性别</td><td>年龄</td>
-<tr><td>{{name}}</td><td>{{sex}}</td><td>{{age}}</td>
+<tr><td>{{name}}</td><td>{% ifequal sex 'm' %}男{% else %}女{% endifequal %}</td><td>{{age}}</td>
 </table>
 <button onclick="window.print()">打印此页</button> <!--<button>关闭窗口</button>-->
 </body>
