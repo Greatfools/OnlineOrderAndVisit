@@ -322,6 +322,7 @@ def cancelInfo(request, oid):
 
 #　支付订单，处理函数，跳转到？
 def payInfo(request, oid):
+<<<<<<< HEAD
 	#visitid=request.POST.visitid
 	if 'member_id' in request.session and request.session['member_id']:
 		visitid=oid
@@ -333,6 +334,24 @@ def payInfo(request, oid):
 				return HttpResponseRedirect('http://kevinfeng.moe/pay.html')
 			else:
 				msg="已支付"
+=======
+	# 此处visitid指的是订单id
+	visitid=oid
+	usrid = 1 #debug
+	TF = OrderMessage.objects.filter(id=visitid)
+	if usrid == TF[0].userId.id:
+		if TF[0].isPayed == False:
+			#Update 挂号排位确定
+			cnt=OrderMessage.objects.filter(visitId=visitid, isPayed=True).count()
+			#print cnt
+			cnt=cnt+1
+			OrderMessage.objects.filter(id=visitid).update(isPayed=True)
+			#SQL
+			cursor = connection.cursor()
+			cursor.execute("INSERT INTO OrderAndVisit_registermessage(orderNum,orderId_id,visitId_id) values (%s,%s,%s)",[cnt,visitid,TF[0].visitId.id])
+			cursor.close()
+			return HttpResponseRedirect('http://kevinfeng.moe/pay.html')
+>>>>>>> 1b505859aa927b329a6f5a5d4308d2aeed69298e
 		else:
 			msg="请求处理失败"
 		direct='/OrderAndVisit/appointinfo/'
@@ -646,3 +665,63 @@ def changepassword(request):
 # 弹窗页面
 def message_append(request, msg, direct):
 	return render(request, 'bkstg_msg.html', {'msg': msg, 'direct': direct})
+
+# 获取当前年份
+def getYear():
+    return str(datetime.date.today())[0:4]
+
+# 预约单，单独页面
+def OrderForm(request, oid):
+	usrid=1 #debug
+	TF = OrderMessage.objects.filter(id=oid)
+	if usrid == TF[0].userId.id:
+		if TF[0].isCanceled == True:
+			return HttpResponse("已取消预约无法打印预约单")
+		else:
+			hospital=TF[0].visitId.doctorId.departmentId.hospitalId.name
+			department=TF[0].visitId.doctorId.departmentId.name
+			doctor=TF[0].visitId.doctorId.name
+			vdate=TF[0].visitId.visitDate
+			vtime=TF[0].visitId.visitTime
+			username=TF[0].userId.name
+			usersex=TF[0].userId.sex
+			idcard=TF[0].userId.idCard
+			birthdaystr=idcard[6:10]
+			IDCARDDATEFORMAT="%Y"
+			now_year=int(getYear())
+			birth_day=int(birthdaystr)
+			years_minus=now_year-birth_day
+			ages=years_minus
+			return render(request, 'print_preorder.html', {'hospital':hospital, 'department':department, 'doctor':doctor, 'date':vdate, 'time':vtime, 'name':username, 'sex':usersex, 'age':ages})
+	else:
+		return HttpResponse("访问非法，无法打印预约单")
+
+# 挂号单，单独页面
+def BookForm(request, oid):
+	usrid=1 #debug
+	TF = OrderMessage.objects.filter(id=oid)
+	if usrid == TF[0].userId.id:
+		if TF[0].isCanceled == True:
+			return HttpResponse("已取消预约无法打印挂号单")
+		elif TF[0].isPayed == False:
+			return HttpResponse("未支付预约无法打印挂号单")
+		else:
+			hospital=TF[0].visitId.doctorId.departmentId.hospitalId.name
+			department=TF[0].visitId.doctorId.departmentId.name
+			doctor=TF[0].visitId.doctorId.name
+			vdate=TF[0].visitId.visitDate
+			vtime=TF[0].visitId.visitTime
+			username=TF[0].userId.name
+			usersex=TF[0].userId.sex
+			idcard=TF[0].userId.idCard
+			birthdaystr=idcard[6:10]
+			IDCARDDATEFORMAT="%Y"
+			now_year=int(getYear())
+			birth_day=int(birthdaystr)
+			years_minus=now_year-birth_day
+			ages=years_minus
+			BookItem = RegisterMessage.objects.filter(orderId=oid)
+			booknum=BookItem[0].orderNum
+			return render(request, 'print_order.html', {'booknum':booknum, 'hospital':hospital, 'department':department, 'doctor':doctor, 'date':vdate, 'time':vtime, 'name':username, 'sex':usersex, 'age':ages})
+	else:
+		return HttpResponse("访问非法，无法打印挂号单")
