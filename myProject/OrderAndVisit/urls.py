@@ -46,7 +46,8 @@ urlpatterns = [
 	url(r'^header.html$', views.header, name = 'header'),
     #　尾部
     url(r'^footer.html$', views.footer, name ='footer'),
-
-	url(r'^appointinfo/ms=(.)', views.message_append, name='message_append'),
+	# 预约单
+	url(r'^orderform/oid(.+)$', views.OrderForm, name='orderform'),
+	# 挂号单
+	url(r'^bookform/oid(.+)$', views.BookForm, name='bookform'),
 ]
-
