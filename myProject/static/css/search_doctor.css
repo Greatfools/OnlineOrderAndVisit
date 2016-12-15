@@ -16,6 +16,12 @@
     position: relative;
     top:120px;
 }
+.no-hospital{
+    position: absolute;
+    top: 50px;
+    left: 270px;
+    text-align: center;
+}
 .index-container {
     width: 1020px;
     height: 241px;
@@ -152,12 +158,12 @@
 }
 .hc-level{
     position: absolute;
-    left: 100px;
+    left: 150px;
     top: 3px;
 }
 .hc-info-detail{
     position: absolute;
-    left: 100px;
+    left: 150px;
     top: 37px;
 }
 .hs-goodat{
@@ -166,7 +172,7 @@
 }
 .hc-goodat-detail{
     position: absolute;
-    left: 100px;
+    left: 150px;
     top: 66px;
 }
 
@@ -175,4 +181,10 @@
     /*top: 930px;*/
     top:680px;
     right: 500px;
+}
+.footer{
+    height:100px;
+    width:100%;
+    position: absolute;
+    top:1200px;
 }

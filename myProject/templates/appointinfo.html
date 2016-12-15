@@ -5,11 +5,11 @@
     <title>预约挂号系统</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
 
-    <!--<link rel="stylesheet" href="../static/css/header.css">-->
+    <!--<link rel="stylesheet" href="/static/css/header.css">-->
 
-    <link rel="stylesheet" href="../static/css/appointinfo.css">
+    <link rel="stylesheet" href="/static/css/appointinfo.css">
 </head>
 
 <body>
@@ -19,10 +19,10 @@
     <div class="row">
         <aside class="usrinfo col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1">
             <img id="usricon" src="/static/img/appointinfo/usricon.png"/>
-            <div id="welcomelabel">欢迎您！{{ user.userName }}</div>
+            <div id="welcomelabel">欢迎您！{{ user.name }}</div>
             <a class="usrinfolink" id="usrinfoindex" href="index.html">首页</a>  <a class="usrinfolink" id="usrinfoquit">退出</a>
             <div class="usrselected">预约信息</div>
-            <div class="usrunselected">个人信息</div>
+            <div class="usrunselected"><a href="/OrderAndVisit/myInfo/">个人信息</a></div>
         </aside>
         <article class="myappnt col-md-8 col-lg-8 ">
             <div id="atcllabel"><img src="/static/img/appointinfo/myappnticon.png"><span>我的预约</span></div>
@@ -47,7 +47,9 @@
                     <td>{{ appoint.visitId.doctorId.name }}</td>
                     <td>{{ appoint.visitId.doctorId.fee }}</td>
                     <td>
-                      {% if appoint.isPayed == True %}
+                        {% if appoint.isCanceled == True %}
+                        已取消
+                      {% elif appoint.isPayed == True %}
                         已付款
                       {% else %}
                         未付款
@@ -57,7 +59,9 @@
                     <td>
                       {% url 'cancelinfo' appoint.id as curl %}
                       {% url 'payinfo' appoint.id as purl %}
-                      {% if appoint.isPayed == False %}<a href="{{ purl }}">支付</a>{% endif %} <a href="{{ curl }}">取消</a> <a>打印预约单</a> <a>打印挂号单</a>
+                      {% url 'orderform' appoint.id as ofurl %}
+                      {% url 'bookform' appoint.id as bfurl %}
+                      {% if appoint.isPayed == False %}<a href="{{ purl }}">支付</a>{% endif %} <a href="{{ curl }}">取消</a> <a target="blank" href="{{ ofurl }}">打印预约单</a> {% if appoint.isPayed == True %}<a target="blank" href="{{bfurl}}">打印挂号单</a>{% endif %}
                     </td>
                     {% else %}
                     <td>已取消预约不可操作   　　　　　</td>
@@ -72,8 +76,8 @@
 </div>
 <div class="footer"></div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<!--<script src="../static/js/header.js"></script>-->
-<script src="../static/js/addheader.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<!--<script src="/static/js/header.js"></script>-->
+<script src="/static/js/addheader.js"></script>
 </html>

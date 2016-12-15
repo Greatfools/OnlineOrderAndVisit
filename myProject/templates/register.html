@@ -5,9 +5,9 @@
     <title>注册新用户</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="/static/css/register.css">
 </head>
 <body>
 <div class="header"></div>
@@ -20,30 +20,42 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <form id="registerForm" class="col-md-offset-1 col-lg-offset-1">
+        <form id="registerForm" class="col-md-offset-1 col-lg-offset-1" action="/OrderAndVisit/register/">
+             <div class="row">
+                <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
+                    <div class="formDiv" id="usernameDiv">用户名:  </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <input name="username" required/>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
                     <div class="formDiv" id="nameDiv">姓名:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input id="nameInput"/>
+                    <input id="nameInput" name="name" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
-                    <div class="formDiv" id="genderDiv">性别:  </div>
+                    <div class="formDiv" id="genderDiv" required>性别:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input/>
+                    <select name="gender">
+                        <option value="m" selected>男</option>
+                        <option value="f">女</option>
+                    </select>
+                    <!--<input name="gender"/>-->
                 </div>
             </div>
             <div class="row">
 
                 <div class="col-md-offset-3 col-lg-offset-2 col-md-2 col-lg-2">
-                    <div class="formDiv" id="IDCDiv">身份证号:  </div>
+                    <div class="formDiv" id="IDCDiv" >身份证号:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input id="IDCInput"/>
+                    <input id="IDCInput" name="idNum" pattern="^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$" required/>
                 </div>
             </div>
             <div class="row">
@@ -51,7 +63,7 @@
                     <div class="formDiv" id="BirthdateDiv">出生日期:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input type="date"/>
+                    <input type="date" name="birthdate" required/>
                 </div>
             </div>
             <div class="row">
@@ -59,7 +71,7 @@
                     <div class="formDiv" id="setPW">设置密码:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input type="password"/>
+                    <input type="password" name="password" required/>
                 </div>
             </div>
             <div class="row">
@@ -67,7 +79,7 @@
                     <div class="formDiv" id="checkPWDiv">确认密码:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input type="password"/>
+                    <input type="password" name="password2" required/>
                 </div>
             </div>
             <div class="row">
@@ -75,17 +87,17 @@
                     <div class="formDiv" id="phoneNumDiv">手机号码:  </div>
                 </div>
                 <div class="col-md-4 col-lg-4">
-                    <input/>
+                    <input name="phoneNum" pattern="^1[3-9]\d{9}$" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-offset-5 col-md-offset-5 col-md-4 col-lg-4 ">
-                    <input type="checkbox">
+                    <input type="checkbox" value="c" name="checkbox" required>
                     <span class="lblGrey">本人同意</span><a href="#">预约挂号服务协议</a>
                 </div>
             </div>
             <div class="row">
-                <button class="btn btnOrange col-lg-2 col-md-2 col-md-offset-5 col-lg-offset-5" id="registerBtn">注册</button>
+                <input type="submit" class="btn btnOrange col-lg-2 col-md-2 col-md-offset-5 col-lg-offset-5" id="registerBtn" value="注册">
             </div>
         </form>
     </div>
@@ -94,7 +106,7 @@
 </div>
 <div class="footer"></div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/addheader.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/addheader.js"></script>
 </html>

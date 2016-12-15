@@ -6,16 +6,20 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../static/css/doctorinfo.css">
+    <link rel="stylesheet" href="/static/css/doctorinfo.css">
 </head>
 <body>
 <div class="header"></div>
 <div class="content-fluid" >
     <div class="row" id="docBscInfo">
-        <img class="col-lg-1 col-md-1 col-lg-offset-1 col-md-offset-1 img-responsive" id="docImg" src="../static/img/doctorinfo/doctoricon.png"/>
-        <div class="col-lg-9 col-md-9" id="docInfoCntnt">
+        {% ifequal sex 'm' %}
+        <img class="col-lg-1 col-md-1 col-lg-offset-3 col-md-offset-3 img-responsive" id="docImg" src="/static/img/doctorinfo/new_search_doctor_03.png"/>
+        {% else %}
+        <img class="col-lg-1 col-md-1 col-lg-offset-3 col-md-offset-3 img-responsive" id="docImg" src="/static/img/doctorinfo/new_search_doctor_06.png"/>
+        {% endifequal %}
+        <div class="col-lg-6 col-md-6" id="docInfoCntnt">
             <span id="docName">{{name}} </span><small id="docJob">主任医师</small><br>
             <span id="docHosName">{{hos}} </span><span id="docClassName">{{dep}}</span><br>
             <span class="infogrey">地址: </span><span id="docAddr">{{address}}</span><br>
@@ -23,10 +27,10 @@
         </div>
     </div>
     <div class="row" id="docAppntLbl">
-        <div class="col-lg-8 col-md-8 col-lg-offset-1 col-md-offset-1" id="chooseAppntTimeLbl">选择就诊时间</div>
+        <div class="col-lg-5 col-md-5 col-lg-offset-3 col-md-offset-3" id="chooseAppntTimeLbl">选择就诊时间</div>
     </div>
     <div class="row" id="docAppnt">
-        <div class="col-lg-8 col-md-8 col-lg-offset-1 col-md-offset-1">
+        <div class="col-lg-5 col-md-5 col-lg-offset-3 col-md-offset-3">
             <!--<div id="chooseAppntTime"></div>-->
             <table class="table table-bordered table-hover" cellspacing="10px">
                 <thead>
@@ -91,15 +95,25 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-lg-2 col-md-2 "id="rule">
+        <div class="col-lg-1 col-md-1 "id="rule">
             <div id="ruleLbl">挂号规则</div>
-            <div id="rulecntnt">1.xxxx<br>2.XXXXX<br>3.xxxxx</div>
+            <div id="rulecntnt">
+                 <p>
+                        1.每日8:00左右更新后一天号源
+                    </p>
+                    <p>
+                        2.可预约明天和未来1周号源
+                    </p>
+                    <p>
+                        3.请遵守预约时间，到医院就诊
+                    </p>
+            </div>
         </div>
     </div>
 </div>
 <div class="footer"></div>
 </body>
-<script type="text/javascript" src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/addheader.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.0.0.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/addheader.js"></script>
 </html>

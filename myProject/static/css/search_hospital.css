@@ -127,8 +127,14 @@
      height: 170px;
      width: 797px;
      padding: 22px 0;
-    position: relative;
+     position: relative;
  }
+.no-hospital{
+    position: absolute;
+    top: 50px;
+    left: 270px;
+    text-align: center;
+}
 .hc-pic-box img{
     padding-left: 10px;
     float: left;
@@ -154,6 +160,17 @@
 .hs-name{
     font-size: 18px;
     color: #101010;
+    float:left;
+    margin-bottom:3px;
+}
+.hs-real-name{
+    position:relative;
+    top:2px;
+}
+.hs-no-real-name{
+    font-size: 18px;
+    color: #101010;
+    margin-bottom:3px;
 }
 .page-direct{
     position: absolute;

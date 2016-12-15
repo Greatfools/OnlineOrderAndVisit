@@ -84,7 +84,6 @@ body {
     top:36px;
     background-color: #ffffff;
     z-index: 10003;
-
 }
 .search-selection ul{
     position: absolute;
@@ -236,6 +235,13 @@ body {
     height:36px;
     display: inline-block;
 }
+.welcomebuttom{
+    width:170px;
+    height:36px;
+    display: inline-block;
+    /*text-align:center;*/
+    padding-top:6px;
+}
 .loginButton button{
     width:79px;
     height:36px;
@@ -295,6 +301,9 @@ body {
 .banner a:hover{
     color: #C9F6FF;
 }
-.selected{
-    background-color: #2BA5ED !important;
+.banner0:hover{
+    background-color: #2BA5ED;
+}
+.banner0{
+    transition:background-color 0.2s ease-in;
 }
