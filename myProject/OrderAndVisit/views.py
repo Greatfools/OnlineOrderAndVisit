@@ -436,7 +436,7 @@ def register(request):
 			password = m.hexdigest()
 			user_tmp = User(userName=username, name=name, password=password, sex=sex, birthday=birthDate, telephone=phoneNum, idCard=idNum)
 			user_tmp.save()
-			#res = User.objects.get(name=name)
+			res = User.objects.get(userName=username)
 			request.session['member_id'] = res.id
 		 return HttpResponseRedirect('/OrderAndVisit/')
 # # 验证手机号
@@ -499,8 +499,8 @@ def hospitalSearch(request,hospitalname,flag,page):
     docnum=[]
     ordernum=[]
     for hospital in hospitals:
-        doctors = Doctor.objects.filter(departmentId__id=hospital.id)
-        orders = OrderMessage.objects.filter(visitId__doctorId__departmentId__id=hospital.id)
+        doctors = Doctor.objects.filter(departmentId__hospitalId__id=hospital.id)
+        orders = OrderMessage.objects.filter(visitId__doctorId__departmentId__hospitalId__id=hospital.id)
         hosnum+=1
         tempdocnum=0
         tempordernum=0
