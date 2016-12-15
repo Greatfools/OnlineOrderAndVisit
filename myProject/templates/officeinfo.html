@@ -94,14 +94,26 @@
             </table>
         </div>
         <div class="col-md-3 col-lg-3" id="appointRuleDiv">
-            <div id="appointRuleLbl">预约规则</div>
-            <span class="InfoBlack">dddd</span>
-            <span class="InfoGrey">yyyyy</span>
+            <div id="appointRuleLbl">挂号规则</div><br>
+            <!--<span class="InfoBlack">dddd</span>-->
+            <span class="InfoGrey"> <p>
+                        1.每日8:00左右更新后一天号源
+                    </p>
+                    <p>
+                        2.可预约明天和未来1周号源
+                    </p>
+                    <p>
+                        3.请遵守预约时间，到医院就诊
+                    </p></span>
         </div>
     </div>
     {% for vis in visitList %}
     <div class="row" id="appointDocList">
-        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/new_search_doctor_03.png"/>
+        {% ifequal vis.doctorId.sex 'm' %}
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/doctorinfo/new_search_doctor_03.png"/>
+        {% else %}
+        <img class="col-md-1 col-lg-1 img-responsive img-rounded" src="/static/img/doctorinfo/new_search_doctor_06.png"/>
+        {% endifequal %}
         <span class="col-lg-2 col-md-2 docNameBlack"><a href="/OrderAndVisit/doctor/{{vis.doctorId.id}}">{{vis.doctorId.name}}</a></span>
         <div class="col-lg-2 col-md-2 docIntro">简介:{{vis.doctorId.introduction}}</div>
         <div class="col-lg-2 col-md-2 col-lg-offset-3 col-md-offset-3">

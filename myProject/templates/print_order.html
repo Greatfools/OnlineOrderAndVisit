@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>挂号单</title>
+<style type="text/css">
+table
+{
+border-collapse: collapse;
+border: none;
+}
+td
+{
+border: solid #000 1px;
+text-align:center;
+height:50px;
+width:80px;
+line-height:50px;
+}
+</style>
+<script>
+window.onbeforeprint = new Function("document.all.pr.style.display='none'");
+window.onafterprint = new Function("document.all.pr.style.display=''");
+</script>
+</head>
+
+<body onprint="document.all.pr.display='none'">
+
+<table width="664" border=1 cellspacing="0" cellpadding="0">
+  <tr><td colspan=4>{{hospital}} <strong>挂号单</strong></td>
+  <tr><td colspan=2>预约号</td><td colspan=2><strong>{{booknum}}</strong></td>
+  <tr><td width="196" >科室</td><td width="99" >医生</td><td width="99" >日期</td><td width="260" >预约时间</td>
+  <tr><td>{{department}}</td><td>{{doctor}}</td><td>{{date}}</td><td>{% if time == 'm' %}上午{% elif time == 'a' %}下午{% else %}晚上{%endif%}</td>
+  <tr><td rowspan=2>患者信息</td><td>姓名</td><td>性别</td><td>年龄</td>
+  <tr><td>{{name}}</td><td>{% ifequal sex 'm' %}男{% else %}女{% endifequal %}</td><td>{{age}}</td>
+</table>
+<button onclick="window.print()">打印此页</button> <!--<button>关闭窗口</button>-->
+</body>
+</html>

@@ -39,6 +39,7 @@ class Department(models.Model):
 class Doctor(models.Model):
     departmentId = models.ForeignKey(Department)
     name = models.CharField(max_length = 10)
+    sex = models.CharField(max_length=5)
     title = models.CharField(max_length = 20)
     introduction = models.TextField(null = True)
     address = models.CharField(max_length = 100)

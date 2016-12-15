@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>医院查询</title>
+    <title>医生查询</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
@@ -96,17 +96,14 @@
                 挂号规则
             </div>
             <div class="ir-body">
-                <p>
+                 <p>
                     1.每日8:00左右更新后一天号源
                 </p>
                 <p>
-                    2.可预约当天和未来2周号源
+                    2.可预约明天和未来1周号源
                 </p>
                 <p>
-                    3.请参考短信提示，到医院就诊
-                </p>
-                <p>
-                    4.就诊前一天16:00前
+                    3.请遵守预约时间，到医院就诊
                 </p>
             </div>
         </div>
@@ -115,7 +112,11 @@
 
         {% for doc in doctors %}
             <div class="hc-pic-box">
-            <img src="/static/img/new_search_doctor_03.png">
+                {% ifequal doc.sex 'm' %}
+            <img src="/static/img/doctorinfo/new_search_doctor_03.png" width="121px" height="123px">
+                {% else %}
+             <img src="/static/img/doctorinfo/new_search_doctor_06.png" width="121px" height="123px">
+                {% endifequal %}
             <div class="hc-text">
                 <p class="hs-name"><a href="/OrderAndVisit/doctor/{{doc.id}}/">{{doc.name}}</a></p>
                 <p class="hc-level">{{doc.title}}</p>
@@ -126,23 +127,32 @@
             </div>
             <p><a href="/OrderAndVisit/doctor/{{doc.id}}/" class="btn btn-primary btn-lg hc-btn" role="button">预约挂号</a>
         </div>
+        {% empty %}
+        <div class="hosp-container">
+            <div class="no-hospital">
+                <img src="/static/img/no-hospital.png">
+                <p>抱歉！没有符合条件的医生</p>
+            </div>
+        </div>
         {% endfor %}
 
 
 
-        
+
     </div>
+    {% if pagerange %}
     <nav class="page-direct">
         <ul class="pagination">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
+            <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},1">&laquo;</a></li>
+            {% for i in pagerange%}
+                <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},{{i}}">{{i}}</a></li>
+            {% endfor %}
+
+            <li><a href="/OrderAndVisit/doctorSearch/{{doctorname}},{{pageend}}">&raquo;</a></li>
+
         </ul>
     </nav>
+    {% endif %}
 
 </div>
 

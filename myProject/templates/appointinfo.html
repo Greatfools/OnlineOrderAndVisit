@@ -47,7 +47,9 @@
                     <td>{{ appoint.visitId.doctorId.name }}</td>
                     <td>{{ appoint.visitId.doctorId.fee }}</td>
                     <td>
-                      {% if appoint.isPayed == True %}
+                        {% if appoint.isCanceled == True %}
+                        已取消
+                      {% elif appoint.isPayed == True %}
                         已付款
                       {% else %}
                         未付款
@@ -57,7 +59,9 @@
                     <td>
                       {% url 'cancelinfo' appoint.id as curl %}
                       {% url 'payinfo' appoint.id as purl %}
-                      {% if appoint.isPayed == False %}<a href="{{ purl }}">支付</a>{% endif %} <a href="{{ curl }}">取消</a> <a>打印预约单</a> <a>打印挂号单</a>
+                      {% url 'orderform' appoint.id as ofurl %}
+                      {% url 'bookform' appoint.id as bfurl %}
+                      {% if appoint.isPayed == False %}<a href="{{ purl }}">支付</a>{% endif %} <a href="{{ curl }}">取消</a> <a target="blank" href="{{ ofurl }}">打印预约单</a> {% if appoint.isPayed == True %}<a target="blank" href="{{bfurl}}">打印挂号单</a>{% endif %}
                     </td>
                     {% else %}
                     <td>已取消预约不可操作   　　　　　</td>
